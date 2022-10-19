@@ -6,10 +6,9 @@ export const DivAnime = styled.div`
       padding: 20px;
       display: flex;
       justify-content: space-between;
-      background-color: rgba(0, 0, 0, 0.813);
-      gap: 1rem;
+      gap: 1.5rem;
       flex-wrap: wrap;
-      max-width: 300px;
+      max-width: 400px;
       color: rgba(255, 255, 255, 0.6);
       list-style-type: "▸";
       border-radius: 8px;
