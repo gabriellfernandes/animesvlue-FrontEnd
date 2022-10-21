@@ -1,5 +1,5 @@
-import { Menu, Button } from "@mantine/core";
-import { DivAnime } from "./styled";
+import { Menu } from "@mantine/core";
+import { DivDropDown } from "../styled";
 
 export const DropDownAnime = () => {
   return (
@@ -9,7 +9,7 @@ export const DropDownAnime = () => {
       </Menu.Target>
       {
         <Menu.Dropdown style={{border: "none", backgroundColor: "rgba(0, 0, 0, 0.813)", borderRadius: "8px"}}>
-          <DivAnime>
+          <DivDropDown>
             <ul>
               <li>
                 <a href="#">Anime</a>
@@ -57,7 +57,7 @@ export const DropDownAnime = () => {
                 <a href="#">Anime</a>
               </li>
             </ul>
-          </DivAnime>
+          </DivDropDown>
         </Menu.Dropdown>
       }
     </Menu>

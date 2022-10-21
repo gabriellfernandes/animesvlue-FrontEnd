@@ -1,7 +1,9 @@
 import { useState } from "react";
 import logo from "../../../assets/logo3.png";
+
 import { HeaderConteinerMobile, OpeMenu } from "./styled";
-import {Divide as Hamburguer} from "hamburger-react"
+import { Divide as Hamburguer } from "hamburger-react";
+import { InputModal } from "./inputModal";
 
 export const HeaderMobile = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -9,8 +11,15 @@ export const HeaderMobile = () => {
   return (
     <>
       <HeaderConteinerMobile>
-        <img src={logo} alt="Logo" className="logo" />
-        <Hamburguer color="white" toggle={() =>setOpen(!open)} size={32} rounded toggled={open}/>
+        <InputModal setOpen={setOpen} />
+          <img src={logo} alt="Logo" className="logo" />
+        <Hamburguer
+          color="white"
+          toggle={() => setOpen(!open)}
+          size={32}
+          rounded
+          toggled={open}
+        />
       </HeaderConteinerMobile>
       {
         <OpeMenu>

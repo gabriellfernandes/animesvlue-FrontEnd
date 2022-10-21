@@ -1,6 +1,6 @@
 
 import { Menu} from "@mantine/core";
-import { DivGener } from "./styled";
+import { DivDropDown } from "../styled";
 
 export const DropDownGeners = () => {
    
@@ -12,7 +12,7 @@ export const DropDownGeners = () => {
         </Menu.Target>
         {
           <Menu.Dropdown style={{border: "none", backgroundColor: "rgba(0, 0, 0, 0.813)", borderRadius: "8px"}}>
-            <DivGener>
+            <DivDropDown>
               <ul>
                 <li>
                   <a href="#">Geners</a>
@@ -60,7 +60,7 @@ export const DropDownGeners = () => {
                   <a href="#">Geners</a>
                 </li>
               </ul>
-            </DivGener>
+            </DivDropDown>
           </Menu.Dropdown>
         }
       </Menu>

@@ -1,18 +1,12 @@
-import { useState } from "react";
-import logo from "../../assets/logo3.png";
-import lupa from "../../assets/lupa.png";
-import lupa2 from "../../assets/lupa2.png";
-import userImg from "../../assets/usuario.png";
-import userImg2 from "../../assets/usuario2.png";
-import { DropDownAnime } from "../dropDownAnime/dropDownAnime";
-import { DropDownGeners } from "../dropDownGeners/dropDownGeners";
+import { DropDownAnime } from "./dropDown/dropDownAnime/dropDownAnime";
+import { DropDownGeners } from "./dropDown/dropDownGeners/dropDownGeners";
 import { HeaderMobile } from "./headerMobile/headerMobile";
 import { HeaderConteiner, InputHeader, UlHeader } from "./styled";
+import { BiSearchAlt } from "react-icons/bi";
+import { FaUser } from "react-icons/fa";
+import logo from "../../assets/logo3.png";
 
 export const Header = () => {
-  const [hover, setHover] = useState<boolean>(false);
-  const [hoverUser, setHoverUser] = useState<boolean>(false);
-
   return (
     <>
       <HeaderMobile />
@@ -41,29 +35,12 @@ export const Header = () => {
           </UlHeader>
         </nav>
         <InputHeader>
-          <input type="text" placeholder="Pesquisar..." />
-          <button
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-          >
-            {hover ? (
-              <img src={lupa2} alt="lupa" className="lupa" />
-            ) : (
-              <img src={lupa} alt="lupa" className="lupa" />
-            )}
-          </button>
+          <div className="conteiner-input">
+            <input type="text" placeholder="Pesquisar..." />
+            <BiSearchAlt />
+          </div>
           <span>|</span>
-          <button
-            onMouseEnter={() => setHoverUser(true)}
-            onMouseLeave={() => setHoverUser(false)}
-            className="user"
-          >
-            {hoverUser ? (
-              <img src={userImg2} alt="lupa" className="lupa" />
-            ) : (
-              <img src={userImg} alt="lupa" className="lupa" />
-            )}
-          </button>
+          <FaUser />
         </InputHeader>
       </HeaderConteiner>
     </>

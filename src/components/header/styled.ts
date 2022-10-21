@@ -9,6 +9,7 @@ export const HeaderConteiner = styled.div`
   align-items: center;
   padding: 10px 10%;
   width: 100%;
+  height: 6rem;
 
   @media (max-width: 1200px) {
     padding: 10px 5%;
@@ -19,23 +20,13 @@ export const HeaderConteiner = styled.div`
   }
 
   a:hover {
-    color: #0096c7;
+    color: rgb(0, 181, 237);
   }
 
   .logo {
     width: 20%;
     height: 60px;
     margin-right: 40px;
-  }
-
-  .lupa {
-    width: 20px;
-    height: 20px;
-  }
-
-  .user {
-    width: 20px;
-    height: 20px;
   }
 `;
 
@@ -46,7 +37,7 @@ export const UlHeader = styled.ul`
   text-align: center;
 
   a {
-    color: rgba(255, 255, 255, 0.6);
+    color: whitesmoke;
     cursor: pointer;
     font-size: 1.2rem;
     text-align: center;
@@ -78,29 +69,29 @@ export const InputHeader = styled.div`
   align-items: center;
 
   input {
-    padding-left: 8px;
     width: 80%;
-    height: 28px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
     background-color: rgba(0, 0, 0, 0);
-    border: 0.5px solid rgba(255, 255, 255, 0.6);
-    border-right: 0px solid;
     color: white;
-    margin-left: 10px;
   }
 
-  button {
-    margin: 0px;
-    padding: 0px;
-    padding-right: 10px;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    height: 28px;
-    background-color: rgba(0, 0, 0, 0);
+  .conteiner-input{
     border: 0.5px solid rgba(255, 255, 255, 0.6);
-    border-left: 0px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.3rem;
   }
+
+  svg{
+      font-size: 25px;
+      color: white;
+      cursor: pointer;
+
+      &:hover{
+        color: rgb(0, 181, 237);
+      }
+    }
 
   span {
     padding: 10px;
@@ -109,30 +100,11 @@ export const InputHeader = styled.div`
     cursor: default;
   }
 
-  .user {
-    margin: 0px;
-    padding: 0px;
-    border: none;
-    height: 28px;
-    background-color: rgba(0, 0, 0, 0);
-  }
-
   @media (max-width: 1050px) {
-    input {
+    .conteiner-input {
       width: 60%;
       margin-left: 40px;
-    }
-  }
-
-  @media (max-width: 910px) {
-    input {
-      width: 40%;
-    }
-  }
-
-  @media (max-width: 768px) {
-    input {
-      width: 40%;
+      padding: 0.2rem;
     }
   }
 `;

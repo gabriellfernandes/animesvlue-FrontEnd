@@ -10,20 +10,27 @@ export const HeaderConteinerMobile = styled.div`
   background-color: #000000b2;
   box-shadow: 0 1px 5px rgb(0 0 0 / 40%);
   color: rgba(255, 255, 255, 0.6);
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 10px 10%;
+  padding: 10px 5%;
   width: 100%;
+  height: 6rem;
 
   .logo {
     width: 160px;
     height: 60px;
-    margin-right: 40px;
   }
 
   .menu_img {
     width: 50px;
     height: 50px;
+  }
+
+  svg{
+    color: white;
+    &:hover{
+      color: rgb(0, 181, 237);
+    }
   }
 
   button {
@@ -63,14 +70,14 @@ export const OpeMenu = styled.div`
       transition: all 0.5s;
 
       a {
-        color: rgba(255, 255, 255, 0.6);
+        color: white;
       }
 
       &:hover {
         background-color: #000000b6;
 
         a {
-          color: white;
+          color: rgb(0, 181, 237);
         }
       }
     }
@@ -82,7 +89,7 @@ export const OpeMenu = styled.div`
     z-index: -1;
     opacity: 0;
     width: 100vw;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 79px);
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
