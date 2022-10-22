@@ -26,9 +26,9 @@ export const HeaderConteinerMobile = styled.div`
     height: 50px;
   }
 
-  svg{
+  svg {
     color: white;
-    &:hover{
+    &:hover {
       color: rgb(0, 181, 237);
     }
   }
@@ -41,6 +41,25 @@ export const HeaderConteinerMobile = styled.div`
 `;
 
 export const OpeMenu = styled.div`
+  .fundo-open {
+    display: none;
+
+    @media (max-width: 850px) {
+      display: block;
+    }
+    
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 999;
+    transition: all 0.5s;
+    top: 95px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
   .ul_mobile-open {
     display: none;
 
@@ -55,7 +74,7 @@ export const OpeMenu = styled.div`
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: #000000b2;
+    background-color: #000000b3;
     transition: all 0.5s;
 
     li {
@@ -81,6 +100,17 @@ export const OpeMenu = styled.div`
         }
       }
     }
+  }
+
+  .fundo-close {
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    z-index: -10;
+    transition: opacity 1s;
+    transition-timing-function: step-end(opacity, end);
+    position: absolute;
   }
 
   .ul_mobile-close {

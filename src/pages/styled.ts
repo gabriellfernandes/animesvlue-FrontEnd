@@ -34,7 +34,8 @@ export const SubHeaderUl = styled.ul`
     justify-content: center;
     background-color: #000000b2;
     color: whitesmoke;
-
+    font-size: 1.5rem;
+    
     &:hover {
       background-color: rgb(0, 181, 237);
     }

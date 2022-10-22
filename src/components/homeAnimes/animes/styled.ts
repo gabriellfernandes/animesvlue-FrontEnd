@@ -24,6 +24,22 @@ export const DivConteinerAnimes = styled.div`
   @media (max-width: 850px) {
     width: 95%;
   }
+
+  svg {
+    color: black;
+    background-color: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 50%;
+    outline: 1px solid whitesmoke;
+
+    &:hover {
+      color: white;
+
+      background-color: rgb(0, 181, 237);
+      border: 1px solid rgb(0, 181, 237);
+      outline: 1px solid rgb(0, 181, 237);
+    }
+  }
 `;
 
 export const DivAnimeList = styled.div`
@@ -49,5 +65,6 @@ export const DivAnimeList = styled.div`
     overflow: hidden;
     text-align: center;
     white-space: nowrap;
+    font-size: 1.2rem;
   }
 `;

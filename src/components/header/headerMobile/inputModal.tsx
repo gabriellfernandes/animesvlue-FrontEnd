@@ -3,8 +3,10 @@ import { useId, useState } from "react";
 import { InputModalInterface } from "../../../interfaces/header_input.inteface/header_input.inteface";
 import { BiSearchAlt } from "react-icons/bi";
 
+
 export const InputModal = ({ setOpen }: InputModalInterface) => {
   const [opened, setOpened] = useState<boolean>(false);
+  
 
   const id = useId();
   return (
