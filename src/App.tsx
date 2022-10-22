@@ -1,15 +1,11 @@
-import React from 'react';
-import './App.css';
-import { DropDownGeners } from './components/dropDownGeners/dropDownGeners';
-import { DropDownAnime } from './components/dropDownAnime/dropDownAnime';
-import { Header } from './components/header/header';
-
-
+import React from "react";
+import "./App.css";
+import { HomePage } from "./pages/home";
 
 function App() {
   return (
     <>
-      <Header />
+      <HomePage />
     </>
   );
 }
