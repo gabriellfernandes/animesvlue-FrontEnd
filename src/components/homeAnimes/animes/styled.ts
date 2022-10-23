@@ -4,7 +4,7 @@ export const DivConteinerAnimes = styled.div`
   display: flex;
   flex-direction: column;
   width: 80%;
-  background-color: #000000b2;
+  background-color: var(--backGroundColor);
   padding: 1rem;
 
   h2 {
@@ -34,10 +34,9 @@ export const DivConteinerAnimes = styled.div`
 
     &:hover {
       color: white;
-
-      background-color: rgb(0, 181, 237);
-      border: 1px solid rgb(0, 181, 237);
-      outline: 1px solid rgb(0, 181, 237);
+      background-color: var(--hoverColor);
+      border: 1px solid var(--hoverColor);
+      outline: 1px solid var(--hoverColor);
     }
   }
 `;
@@ -51,20 +50,4 @@ export const DivAnimeList = styled.div`
   overflow-y: hidden;
   overflow-x: scroll;
 
-  img {
-    width: 240px;
-    height: 340px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-  }
-
-  p {
-    color: whitesmoke;
-    width: 240px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    text-align: center;
-    white-space: nowrap;
-    font-size: 1.2rem;
-  }
 `;

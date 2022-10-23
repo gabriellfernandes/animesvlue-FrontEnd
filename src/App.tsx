@@ -1,12 +1,13 @@
 import React from "react";
 import "./App.css";
-import { HomePage } from "./pages/home";
+import { ContextAnimes } from "./contexts/animesContext";
+import { RoutesMap } from "./routes/routes";
 
 function App() {
   return (
-    <>
-      <HomePage />
-    </>
+    <ContextAnimes>
+      <RoutesMap />
+    </ContextAnimes>
   );
 }
 

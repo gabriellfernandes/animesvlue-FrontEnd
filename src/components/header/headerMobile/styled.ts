@@ -49,7 +49,7 @@ export const OpeMenu = styled.div`
     }
     
     background-color: white;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     position: fixed;
     z-index: 999;
@@ -69,7 +69,7 @@ export const OpeMenu = styled.div`
 
     position: absolute;
     z-index: 1000;
-    width: 100vw;
+    width: 100%;
     height: calc(100vh - 81px);
     align-items: center;
     justify-content: center;
@@ -104,7 +104,7 @@ export const OpeMenu = styled.div`
 
   .fundo-close {
     background-color: white;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     opacity: 0;
     z-index: -10;
@@ -118,7 +118,7 @@ export const OpeMenu = styled.div`
     position: absolute;
     z-index: -1;
     opacity: 0;
-    width: 100vw;
+    width: 100%;;
     height: calc(100vh - 79px);
     align-items: center;
     justify-content: center;

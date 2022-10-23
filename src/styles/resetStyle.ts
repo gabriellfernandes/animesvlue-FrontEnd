@@ -31,7 +31,6 @@ export const GlobalStyles = createGlobalStyle`
         background: var(--color-grey-1);
         color: var(--color-grey-5);
         height: 100vh;
-        
     }
     ::-webkit-scrollbar {
         width: 10px;
@@ -71,5 +70,10 @@ export const GlobalStyles = createGlobalStyle`
     
     a {
         text-decoration: none;
+    }
+
+    :root {  
+        --backGroundColor: #000000b2;
+        --hoverColor: rgb(0, 181, 237);
     }
 `;

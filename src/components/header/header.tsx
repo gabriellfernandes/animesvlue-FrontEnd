@@ -5,8 +5,12 @@ import { HeaderConteiner, InputHeader, UlHeader } from "./styled";
 import { BiSearchAlt } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
 import logo from "../../assets/logo3.png";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
+  const [seachInputHeader, setSeachInputHeader] = useState("")
+  const navigate = useNavigate()
   return (
     <>
       <HeaderMobile />
@@ -34,10 +38,14 @@ export const Header = () => {
             </li>
           </UlHeader>
         </nav>
-        <InputHeader>
+        <InputHeader onSubmit={(e) => {
+          e.preventDefault()
+          seachInputHeader !== "" &&
+            navigate(`/seach/${seachInputHeader}`)
+        }}>
           <div className="conteiner-input">
-            <input type="text" placeholder="Pesquisar..." />
-            <BiSearchAlt />
+            <input type="text" placeholder="Pesquisar..." onChange={(e) => setSeachInputHeader(e.target.value)}/>
+            <button type="submit"><BiSearchAlt/></button>
           </div>
           <span>|</span>
           <FaUser />
