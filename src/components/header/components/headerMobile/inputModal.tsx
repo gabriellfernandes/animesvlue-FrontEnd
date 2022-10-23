@@ -1,6 +1,6 @@
 import { Button, Group, Input, Modal, TextInput } from "@mantine/core";
 import { useId, useState } from "react";
-import { InputModalInterface } from "../../../interfaces/header_input.inteface/header_input.inteface";
+import { InputModalInterface } from "../../../../interfaces/header_input.inteface/header_input.inteface";
 import { BiSearchAlt } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 
@@ -27,7 +27,7 @@ export const InputModal = ({ setOpen }: InputModalInterface) => {
             id={id}
             placeholder="Pesquise..."
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-              setSeachInputHeader(event.target.value)
+              setSeachInputHeader(event.target.value);
             }}
           />
         </Input.Wrapper>

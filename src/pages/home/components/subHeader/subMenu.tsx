@@ -1,4 +1,4 @@
-import { SubHeaderUl } from "../../../pages/home/styled";
+import { SubHeaderUl } from "../../styled";
 
 export const SubHeader = () => {
   const ABC = [

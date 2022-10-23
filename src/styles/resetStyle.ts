@@ -75,5 +75,6 @@ export const GlobalStyles = createGlobalStyle`
     :root {  
         --backGroundColor: #000000b2;
         --hoverColor: rgb(0, 181, 237);
+        --colorSpan: #C4C9CD;
     }
 `;

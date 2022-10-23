@@ -1,21 +1,13 @@
 import { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { AnimeEpisodesList } from "../../components/animesEp/animeInfoEpisodes";
-import { AnimeInfo } from "../../components/animesInfo/animeinfo";
-import { v4 as uuid } from "uuid";
-import { CardAnime } from "../../components/CardAnime/cardAnime";
+import { InfoAnime } from "./components/animesInfo/infoAnime";
 import { Header } from "../../components/header/header";
 import { AnimeContext } from "../../contexts/animesContext";
+import { DivConteiner, InfoConteiner } from "./styled";
 
 export const AnimeInfoPage = () => {
-  const {
-    setAnimeIdInfo,
-    loadingInfo,
-    topAiring,
-    animeInfo,
-    setLoading,
-    setLoadingInfo,
-  } = useContext(AnimeContext);
+  const { setAnimeIdInfo, loadingInfo, setLoading, setLoadingInfo } =
+    useContext(AnimeContext);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -31,34 +23,17 @@ export const AnimeInfoPage = () => {
   return (
     <>
       <Header />
-
-      {!loadingInfo ? (
-        <>
-          <AnimeInfo key={uuid()} />
-          <div>
-            <h2>Top Animes</h2>
-            <div>
-              {topAiring.map((elem) => {
-                return (
-                  <CardAnime
-                    image={elem.animeImg}
-                    title={elem.animeTitle}
-                    animeId={elem.animeId}
-                  ></CardAnime>
-                );
-              })}
-            </div>
-          </div>
-          <AnimeEpisodesList
-            animeImg={animeInfo.animeImg}
-            animeTitle={animeInfo.animeTitle}
-            eplist={animeInfo.episodesList}
-            key={uuid()}
-          />
-        </>
-      ) : (
-        <div>Carregando...</div>
-      )}
+      <DivConteiner>
+        <InfoConteiner>
+          {!loadingInfo ? (
+            <>
+              <InfoAnime key="animesInfo" />
+            </>
+          ) : (
+            <div>Carregando...</div>
+          )}
+        </InfoConteiner>
+      </DivConteiner>
     </>
   );
 };

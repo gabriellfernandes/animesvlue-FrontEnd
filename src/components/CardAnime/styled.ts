@@ -3,16 +3,19 @@ import styled from "styled-components";
 export const CardAnimeItem = styled.div`
   height: 374px;
   width: 240px;
+  margin-bottom: 20px;
+
   cursor: pointer;
 
   img {
+    position: relative;
     width: 240px;
     height: 340px;
-    margin-bottom: 10px;
     border-radius: 10px;
   }
 
   p {
+    margin-top: 10px;
     color: whitesmoke;
     width: 240px;
     text-overflow: ellipsis;
@@ -34,17 +37,27 @@ export const CardAnimeItem = styled.div`
     bottom: 5px;
   }
 
+  .playButton {
+    display: inline-block;
+    position: relative;
+    max-width: 100%;
+    
+    img {
+      max-width: 100%;
+    }
+  }
+
   &:hover {
     p {
       color: var(--hoverColor);
     }
 
-    &::after {
+    .playButton:after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       content: url("https://www.wonderplugin.com/download/playbutton.png");
-      z-index: 999;
-      position: relative;
-      bottom: 240px;
-      left: 38%;
     }
 
     img {

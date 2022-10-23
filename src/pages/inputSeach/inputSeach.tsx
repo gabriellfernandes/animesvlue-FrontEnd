@@ -13,15 +13,15 @@ export const InputSeachPage = () => {
 
   return (
     <>
-      <Header />
-      <DivInputPageConteiner>
-        <DivConteinerAnimesInput>
+      <Header key="header"/>
+      <DivInputPageConteiner key="DivInputPageConteiner">
+        <DivConteinerAnimesInput key="DivConteinerAnimesInput">
           {!loading ? (
             inputResults.length != 0 ? (
               <>
                 <h2 style={{marginTop: "40px"}}>Seach Results</h2>
                 <span>-----</span>
-                <DivAnimeSeach>
+                <DivAnimeSeach key="divAnimeSeach">
                   {inputResults.map((elem) => {
                     return (
                       <CardAnime
@@ -35,7 +35,7 @@ export const InputSeachPage = () => {
                 </DivAnimeSeach>
               </>
             ) : (
-              <div>Not find animes</div>
+              <div key="loading">Not find animes</div>
             )
           ) : (
             <></>

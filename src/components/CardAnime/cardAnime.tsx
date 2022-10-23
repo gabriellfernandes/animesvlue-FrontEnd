@@ -11,11 +11,13 @@ export const CardAnime = ({ title, image, animeId }: CardAnimeInterface) => {
     <CardAnimeItem
       onClick={() => {
         setLoading(true);
-        setAnimeIdInfo(animeId!)
+        setAnimeIdInfo(animeId!);
         navigate(`/anime/info/${animeId}`);
       }}
     >
-      <img src={image} alt={title} />
+      <div className="playButton">
+        <img src={image} alt={title} />
+      </div>
       <p>{title}</p>
     </CardAnimeItem>
   );

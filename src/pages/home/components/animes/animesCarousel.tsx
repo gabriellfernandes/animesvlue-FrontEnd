@@ -1,7 +1,7 @@
-import { AnimesCarouselInterface } from "../../../interfaces/animesComponentsInterface/animesCarouselInterface";
+import { AnimesCarouselInterface } from "../../../../interfaces/animesComponentsInterface/animesCarouselInterface";
 import { Carousel } from "@mantine/carousel";
-import { IconArrowRight, IconArrowLeft } from '@tabler/icons';
-import { CardAnime } from "../../CardAnime/cardAnime";
+import { IconArrowRight, IconArrowLeft } from "@tabler/icons";
+import { CardAnime } from "../../../../components/CardAnime/cardAnime";
 import { DivAnimeList } from "./styled";
 
 export const AnimesCarousel = ({ title, list }: AnimesCarouselInterface) => {
@@ -23,7 +23,11 @@ export const AnimesCarousel = ({ title, list }: AnimesCarouselInterface) => {
           return (
             <Carousel.Slide>
               <DivAnimeList>
-                <CardAnime title={elem.animeTitle} image={elem.animeImg} animeId={elem.animeId}/>
+                <CardAnime
+                  title={elem.animeTitle}
+                  image={elem.animeImg}
+                  animeId={elem.animeId}
+                />
               </DivAnimeList>
             </Carousel.Slide>
           );
