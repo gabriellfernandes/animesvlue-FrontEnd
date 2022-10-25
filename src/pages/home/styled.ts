@@ -5,7 +5,11 @@ export const DivHomeConteiner = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100%;
+  padding-bottom: 160px;
 `;
+
+
 
 export const SubHeaderUl = styled.ul`
   display: flex;
@@ -13,6 +17,8 @@ export const SubHeaderUl = styled.ul`
   justify-content: space-between;
   width: 80%;
   box-shadow: 0px 2px 3px rgb(101 101 101 / 42%);
+  
+  
 
   @media (max-width: 1200px) {
     width: 90%;
@@ -32,12 +38,12 @@ export const SubHeaderUl = styled.ul`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #000000b2;
+    background-color: var(--backGroundColor);
     color: whitesmoke;
     font-size: 1.5rem;
     
     &:hover {
-      background-color: rgb(0, 181, 237);
+      background-color: var(--hoverColor);
     }
   }
 `;

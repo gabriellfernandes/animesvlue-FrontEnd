@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "../../../assets/logo3.png";
+import logo from "../../../../assets/logo3.png";
 import { RemoveScroll } from "react-remove-scroll";
 import { HeaderConteinerMobile, OpeMenu } from "./styled";
 import { Divide as Hamburguer } from "hamburger-react";
@@ -21,7 +21,7 @@ export const HeaderMobile = () => {
   return (
     <>
       <HeaderConteinerMobile>
-        <InputModal setOpen={setOpen} />
+        <InputModal setOpen={setOpen}/>
         <img src={logo} alt="Logo" className="logo" />
         <Hamburguer
           color="white"

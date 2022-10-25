@@ -9,7 +9,6 @@ export const DivDropDown = styled.div`
     gap: 1.5rem;
     flex-wrap: wrap;
     max-width: 400px;
-    color: rgba(255, 255, 255, 0.6);
     list-style-type: "▸";
     border-radius: 8px;
 
@@ -18,12 +17,12 @@ export const DivDropDown = styled.div`
       list-style-type: "";
       &:hover {
         a {
-          color: rgb(0, 181, 237);
+          color: var(--hoverColor);
         }
       }
 
       a {
-        color: whitesmoke;
+        color: var(--colorDropDown);;
         cursor: pointer;
       }
     }

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const HeaderConteiner = styled.div`
-  background-color: #000000b2;
+  background-color: var(--backGroundColor);
   box-shadow: 0 1px 5px rgb(0 0 0 / 40%);
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--colorDropDown);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -20,7 +20,7 @@ export const HeaderConteiner = styled.div`
   }
 
   a:hover {
-    color: rgb(0, 181, 237);
+    color: var(--hoverColor);
   }
 
   .logo {
@@ -37,7 +37,7 @@ export const UlHeader = styled.ul`
   text-align: center;
 
   a {
-    color: whitesmoke;
+    color: var(--colorDropDown);
     cursor: pointer;
     font-size: 1.2rem;
     text-align: center;
@@ -64,9 +64,10 @@ export const UlHeader = styled.ul`
   }
 `;
 
-export const InputHeader = styled.div`
+export const InputHeader = styled.form`
   display: flex;
   align-items: center;
+  
 
   input {
     width: 80%;
@@ -89,7 +90,7 @@ export const InputHeader = styled.div`
       cursor: pointer;
 
       &:hover{
-        color: rgb(0, 181, 237);
+        color: var(--hoverColor);
       }
     }
 
@@ -98,6 +99,13 @@ export const InputHeader = styled.div`
     font-weight: bold;
     font-size: 22px;
     cursor: default;
+  }
+  
+  button{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    padding: 0;
+    margin: 0;
   }
 
   @media (max-width: 1050px) {
