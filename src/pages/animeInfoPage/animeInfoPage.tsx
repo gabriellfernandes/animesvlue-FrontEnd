@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { InfoAnime } from "./components/animesInfo/infoAnime";
 import { Header } from "../../components/header/header";
 import { AnimeContext } from "../../contexts/animesContext";
-import { DivConteiner, InfoConteiner } from "./styled";
+import { InfoConteiner, DivConteiner } from "./styled";
 
 export const AnimeInfoPage = () => {
   const { setAnimeIdInfo, loadingInfo, setLoading, setLoadingInfo } =

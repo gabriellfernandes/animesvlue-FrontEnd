@@ -6,6 +6,7 @@ export const DivConteinerAnimes = styled.div`
   width: 80%;
   background-color: var(--backGroundColor);
   padding: 1rem;
+  padding-bottom: 60px;
 
   h2 {
     color: whitesmoke;

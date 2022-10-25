@@ -2,7 +2,13 @@ import { useContext } from "react";
 import { AnimeEpisodesList } from "../../../../components/animesEp/animeEpisodes";
 import { CardAnime } from "../../../../components/CardAnime/cardAnime";
 import { AnimeContext } from "../../../../contexts/animesContext";
-import { DivAlingTopAnime, DivConteinerInfoTopAling, DivInfo, DivSynope } from "../../styled";
+import {
+  DivAlingTopAnime,
+  DivConteinerInfoTopAling,
+  DivEpisodio,
+  DivInfo,
+  DivSynope,
+} from "../../styled";
 
 export const InfoAnime = () => {
   const { animeInfo, topAiring } = useContext(AnimeContext);
@@ -23,12 +29,12 @@ export const InfoAnime = () => {
                 <h2>Genre:</h2>
                 <ul>
                   {animeInfo.genres.map((elem, index) => {
-                  
-                    return (  
-                      index < 3 &&
-                      <li>
-                        <span>{elem}</span>
-                      </li>
+                    return (
+                      index < 3 && (
+                        <li>
+                          <span>{elem}</span>
+                        </li>
+                      )
                     );
                   })}
                 </ul>
@@ -43,14 +49,18 @@ export const InfoAnime = () => {
           </div>
         </DivInfo>
         <DivSynope>
-          <h2>Synopsis: <span>{animeInfo.synopsis}</span></h2>
+          <h2>
+            Synopsis: <span>{animeInfo.synopsis}</span>
+          </h2>
         </DivSynope>
-        <AnimeEpisodesList
-          animeImg={animeInfo.animeImg}
-          animeTitle={animeInfo.animeTitle}
-          eplist={animeInfo.episodesList}
-          key="animeEpisodesList"
-        />
+        <DivEpisodio>
+          <AnimeEpisodesList
+            animeImg={animeInfo.animeImg}
+            animeTitle={animeInfo.animeTitle}
+            eplist={animeInfo.episodesList}
+            key="animeEpisodesList"
+          />
+        </DivEpisodio>
       </DivConteinerInfoTopAling>
       <DivAlingTopAnime>
         <h2>Top Animes</h2>

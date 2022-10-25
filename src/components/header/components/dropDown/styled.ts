@@ -22,7 +22,7 @@ export const DivDropDown = styled.div`
       }
 
       a {
-        color: whitesmoke;
+        color: var(--colorDropDown);;
         cursor: pointer;
       }
     }

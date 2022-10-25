@@ -50,8 +50,8 @@ export const DivInfo = styled.div`
   align-items: center;
   width: 100%;
   justify-content: space-between;
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
+  border-bottom: 1px solid gray;
+  border-right: 1px solid gray;
   padding: 2rem;
   padding-top: 3rem;
 
@@ -217,8 +217,9 @@ export const DivInfo = styled.div`
 
 export const DivSynope = styled.div`
   padding: 2rem;
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
+  border-bottom: 1px solid gray;
+  border-right: 1px solid gray;
+
   h2 {
     font-size: 1.6rem;
     margin-right: 1%;
@@ -231,11 +232,12 @@ export const DivSynope = styled.div`
 `;
 
 export const DivAlingTopAnime = styled.div`
+  display: flex;
   padding-top: 2rem;
   text-align: center;
   flex-direction: column;
   text-align: center;
-  padding-left: 0.5rem;
+  width: 20%;
 
   div {
     display: flex;
@@ -247,6 +249,11 @@ export const DivAlingTopAnime = styled.div`
   h2 {
     margin-bottom: 10px;
     text-align: center;
+  }
+
+  img {
+    width: 280px;
+    height: 340px;
   }
 
   @media (max-width: 1700px) {
@@ -261,16 +268,24 @@ export const DivAlingTopAnime = styled.div`
     }
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 1200px) {
     img {
-      width: 180px;
-      height: 280px;
+      width: 160px;
+      height: 260px;
+    }
+  }
+
+  @media (max-width: 920px) {
+    img {
+      width: 140px;
+      height: 240px;
     }
   }
 
   @media (max-width: 850px) {
     padding-top: 0rem;
     padding-left: 0rem;
+    width: 0px;
 
     div {
       display: none;
@@ -278,6 +293,67 @@ export const DivAlingTopAnime = styled.div`
 
     h2 {
       display: none;
+    }
+  }
+`;
+
+export const DivEpisodio = styled.div`
+  padding-top: 40px;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  border-right: 1px solid gray;
+  text-align: center;
+
+  img {
+    width: 280px;
+    height: 360px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    margin-bottom: 4%;
+  }
+
+  .animeEpConteiner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-left: 5%;
+    gap: 2rem;
+
+    h4 {
+      max-width: 40%;
+      color: white;
+    }
+
+    &:hover {
+      h4 {
+        color: var(--hoverColor);
+      }
+    }
+  }
+
+  @media (max-width: 850px) {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .animeEpConteiner {
+      display: block;
+      gap: 0px;
+      height: 374px;
+      width: 240px;
+      margin-bottom: 40px;
+
+      img {
+        margin-left: 0%;
+        margin-right: 0%;
+      }
+
+      h4 {
+        max-width: 100%;
+        color: white;
+      }
     }
   }
 `;

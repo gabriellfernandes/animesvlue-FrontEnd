@@ -12,8 +12,8 @@ export const AnimesCarousel = ({ title, list }: AnimesCarouselInterface) => {
       <Carousel
         slideSize="20%"
         height={371}
-        align="center"
-        slideGap="md"
+        align="start"
+        slideGap="sm"
         loop
         slidesToScroll={3}
         nextControlIcon={<IconArrowRight size={29} />}

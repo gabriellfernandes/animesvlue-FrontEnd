@@ -53,7 +53,7 @@ export const DivConteinerAnimesInput = styled.div`
   }
 
   span {
-    color: whitesmoke;
+    color: var(--colorDropDown);
     font-size: 4rem;
     margin-bottom: 30px;
   }
@@ -68,10 +68,10 @@ export const DivConteinerAnimesInput = styled.div`
 
   svg {
     color: black;
-    background-color: whitesmoke;
-    border: 1px solid whitesmoke;
+    background-color: var(--colorDropDown);
+    border: 1px solid var(--colorDropDown);
     border-radius: 50%;
-    outline: 1px solid whitesmoke;
+    outline: 1px solid var(--colorDropDown);
 
     &:hover {
       color: white;

@@ -76,5 +76,7 @@ export const GlobalStyles = createGlobalStyle`
         --backGroundColor: #000000b2;
         --hoverColor: rgb(0, 181, 237);
         --colorSpan: #C4C9CD;
+        --colorTitle: rgba(255, 255, 255, 0.6);
+        --colorDropDown: whitesmoke;
     }
 `;

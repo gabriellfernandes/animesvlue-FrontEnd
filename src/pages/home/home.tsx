@@ -11,9 +11,9 @@ export const HomePage = () => {
         <Header key="header" />
         <DivHomeConteiner key="DivHomeConteiner">
           <SubHeader key="subMenu" />
-          <AnimesListGeneric type="recent-episodes" key="recent-episodes" />
-          <AnimesListGeneric type="top-airing" key="top-airing" />
-          <AnimesListGeneric type="popular" key="popular" />
+          <AnimesListGeneric type="recent-episodes"  />
+          <AnimesListGeneric type="top-airing" />
+          <AnimesListGeneric type="popular"  />
         </DivHomeConteiner>
       </ContextAnimes>
     </>

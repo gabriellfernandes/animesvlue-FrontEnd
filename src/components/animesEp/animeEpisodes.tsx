@@ -1,16 +1,22 @@
 import { AnimeEpisodesListInterface } from "../../interfaces/animesComponentsInterface/animesCarouselInterface";
+import { CardAnimeItem } from "../CardAnime/styled";
 
-export const AnimeEpisodesList = ({eplist, animeImg, animeTitle}: AnimeEpisodesListInterface) => {
-
+export const AnimeEpisodesList = ({
+  eplist,
+  animeImg,
+  animeTitle,
+}: AnimeEpisodesListInterface) => {
   return (
     <div>
       {eplist.length !== undefined &&
         eplist.map((elem) => {
           return (
-            <div>
-              <img src={animeImg} alt={animeTitle} />
-              <p>{`Ep ${elem.episodeNum} | ${animeTitle}`}</p>
-            </div>
+            <CardAnimeItem className="animeEpConteiner">
+              <div className="playButton">
+                <img src={animeImg} alt={animeTitle} />
+              </div>
+              <h4>{`Ep ${elem.episodeNum} | ${animeTitle}`}</h4>
+            </CardAnimeItem>
           );
         })}
     </div>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const HeaderConteiner = styled.div`
   background-color: var(--backGroundColor);
   box-shadow: 0 1px 5px rgb(0 0 0 / 40%);
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--colorDropDown);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -37,7 +37,7 @@ export const UlHeader = styled.ul`
   text-align: center;
 
   a {
-    color: whitesmoke;
+    color: var(--colorDropDown);
     cursor: pointer;
     font-size: 1.2rem;
     text-align: center;
