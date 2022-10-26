@@ -18,7 +18,6 @@ export const SubHeaderUl = styled.ul`
   width: 80%;
   box-shadow: 0px 2px 3px rgb(101 101 101 / 42%);
   
-  
 
   @media (max-width: 1200px) {
     width: 90%;

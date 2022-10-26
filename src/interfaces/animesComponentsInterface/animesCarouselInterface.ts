@@ -1,19 +1,16 @@
 import {
-  AnimesResultReleaseInterface,
-  AnimesResultsPopularInterface,
-  AnimesResultsTopAiringInterface,
+  AnimesResultsApi, EpisodesResultsInterface
 } from "../animesContextInterface/animeContextInterface";
 
 export interface AnimesCarouselInterface {
   title: string;
-  list:
-    | AnimesResultsTopAiringInterface[]
-    | AnimesResultReleaseInterface[]
-    | AnimesResultsPopularInterface[];
+  list: AnimesResultsApi[]
+
+  
 }
 
 export interface AnimeEpisodesListInterface {
-  eplist: [{ episodeId: string; episodeNum: string; episodeUrl: string }];
+  eplist: EpisodesResultsInterface[];
   animeImg: string;
   animeTitle: string;
 }

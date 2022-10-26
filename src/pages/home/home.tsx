@@ -13,7 +13,7 @@ export const HomePage = () => {
           <SubHeader key="subMenu" />
           <AnimesListGeneric type="recent-episodes"  />
           <AnimesListGeneric type="top-airing" />
-          <AnimesListGeneric type="popular"  />
+          <AnimesListGeneric type="dub"  />
         </DivHomeConteiner>
       </ContextAnimes>
     </>

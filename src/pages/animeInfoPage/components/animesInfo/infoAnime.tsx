@@ -1,4 +1,6 @@
+import { info } from "console";
 import { useContext } from "react";
+import { useParams } from "react-router-dom";
 import { AnimeEpisodesList } from "../../../../components/animesEp/animeEpisodes";
 import { CardAnime } from "../../../../components/CardAnime/cardAnime";
 import { AnimeContext } from "../../../../contexts/animesContext";
@@ -11,53 +13,45 @@ import {
 } from "../../styled";
 
 export const InfoAnime = () => {
-  const { animeInfo, topAiring } = useContext(AnimeContext);
-
+  const { animeInfo, topAiring, listEpisodes } = useContext(AnimeContext);
+  const {id} = useParams()
   return (
     <>
       <DivConteinerInfoTopAling>
         <DivInfo>
           <div className="divConteinerInfo">
-            <img src={animeInfo.animeImg} alt="" />
+            <img
+              src={`https://cdn.appanimeplus.tk/img/${animeInfo.category_image}`}
+              alt=""
+            />
 
             <div className="info">
-              <h2>Title: {animeInfo.animeTitle}</h2>
+              <h2>Titulo: {animeInfo.category_name}</h2>
               <h3>
-                Original Title: <span>{animeInfo.otherNames}</span>
+                Titulo Original: <span>{animeInfo.category_name}</span>
               </h3>
               <div className="divGeners">
-                <h2>Genre:</h2>
-                <ul>
-                  {animeInfo.genres.map((elem, index) => {
-                    return (
-                      index < 3 && (
-                        <li>
-                          <span>{elem}</span>
-                        </li>
-                      )
-                    );
-                  })}
-                </ul>
+                <h2>Generos: <span>{animeInfo.category_genres}</span></h2>
               </div>
               <h2>
-                Episodes: <span>{animeInfo.totalEpisodes}</span>
+                Episódios: <span>{animeInfo.count}</span>
               </h2>
               <h2>
-                Status: <span>{animeInfo.status}</span>
+                Ano: <span>{animeInfo.ano}</span>
               </h2>
             </div>
           </div>
         </DivInfo>
         <DivSynope>
           <h2>
-            Synopsis: <span>{animeInfo.synopsis}</span>
+            Sinopse: <span>{animeInfo.category_description}</span>
           </h2>
         </DivSynope>
         <DivEpisodio>
           <AnimeEpisodesList
-            animeImg={animeInfo.animeImg}
-            animeTitle={animeInfo.animeTitle}
-            eplist={animeInfo.episodesList}
+            animeImg={animeInfo.category_image}
+            animeTitle={animeInfo.category_name}
+            eplist={listEpisodes}
             key="animeEpisodesList"
           />
         </DivEpisodio>
@@ -67,10 +61,14 @@ export const InfoAnime = () => {
         <div>
           {topAiring.map((elem) => {
             return (
+              id != elem.category_id && id != elem.id &&
               <CardAnime
-                image={elem.animeImg}
-                title={elem.animeTitle}
-                animeId={elem.animeId}
+                title={
+                  elem.title != undefined ? elem.title! : elem.category_name!
+                }
+                image={`https://cdn.appanimeplus.tk/img/${elem.category_image}`}
+                animeId={elem.id != undefined ? elem.id : elem.category_id}
+                episodeId={elem.video_id != undefined ? elem.video_id : ""}
               ></CardAnime>
             );
           })}

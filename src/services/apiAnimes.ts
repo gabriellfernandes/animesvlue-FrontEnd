@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const ApiIAnime = axios.create({
-    baseURL: "https://gabriellf.herokuapp.com/"
+    baseURL: "https://appanimeplus.tk/",
+    responseType:"json"
 })
 
 export default ApiIAnime;

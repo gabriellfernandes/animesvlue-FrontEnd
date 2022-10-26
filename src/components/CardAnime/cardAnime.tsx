@@ -4,18 +4,28 @@ import { AnimeContext } from "../../contexts/animesContext";
 import { CardAnimeInterface } from "../../interfaces/cardAnimeInterface/cardAnimeInterface";
 import { CardAnimeItem } from "./styled";
 
-export const CardAnime = ({ title, image, animeId = "" }: CardAnimeInterface) => {
-  const { setLoading, setAnimeIdInfo } = useContext(AnimeContext);
-  const { id } = useParams();
+export const CardAnime = ({
+  title,
+  image,
+  animeId = "",
+  episodeId = ""
+}: CardAnimeInterface) => {
+  const { setLoading, setAnimeIdInfo, setEpisodeId } = useContext(AnimeContext);
+  const { id, idEp } = useParams();
   const navigate = useNavigate();
+ 
+
   return (
     <>
-      {id != animeId && (
+      {(
         <CardAnimeItem
           onClick={() => {
             setLoading(true);
-            setAnimeIdInfo(animeId!);
-            navigate(`/anime/info/${animeId}`);
+            setAnimeIdInfo(animeId)
+            setEpisodeId(episodeId)
+            episodeId == ""
+              ? navigate(`/anime/info/${animeId}`)
+              : navigate(`/anime/episode/${episodeId}/${animeId}`);
           }}
         >
           <div className="playButton">

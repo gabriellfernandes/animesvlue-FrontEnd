@@ -1,11 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 import {
   AnimeContextInterface,
+  AnimeEpisodeResultsInterface,
   AnimeInfoResultsInteface,
-  AnimesResultReleaseInterface,
-  AnimesResultsPopularInterface,
-  AnimesResultsTopAiringInterface,
+  AnimesResultsApi,
   ContextAnimeInterface,
+  EpisodesResultsInterface,
   InputResultsInterface,
 } from "../interfaces/animesContextInterface/animeContextInterface";
 import ApiIAnime from "../services/apiAnimes";
@@ -16,14 +16,14 @@ export const AnimeContext = createContext<AnimeContextInterface>(
 
 export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
   const [typeGet, setTypeGet] = useState("recent-episodes");
-  const [recentEpisodes, setRecentEpisodes] = useState<
-    AnimesResultReleaseInterface[]
-  >([] as AnimesResultReleaseInterface[]);
-  const [topAiring, setTopAiring] = useState<AnimesResultsTopAiringInterface[]>(
-    [] as AnimesResultsTopAiringInterface[]
+  const [recentEpisodes, setRecentEpisodes] = useState<AnimesResultsApi[]>(
+    [] as AnimesResultsApi[]
   );
-  const [popular, setPopular] = useState<AnimesResultsPopularInterface[]>(
-    [] as AnimesResultsPopularInterface[]
+  const [topAiring, setTopAiring] = useState<AnimesResultsApi[]>(
+    [] as AnimesResultsApi[]
+  );
+  const [dubs, setDubs] = useState<AnimesResultsApi[]>(
+    [] as AnimesResultsApi[]
   );
   const [inputResults, setInputResults] = useState<InputResultsInterface[]>(
     [] as InputResultsInterface[]
@@ -34,27 +34,44 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
   const [animeInfo, setAnimeInfo] = useState<AnimeInfoResultsInteface>(
     {} as AnimeInfoResultsInteface
   );
-  const [loadingInfo, setLoadingInfo] = useState(true)
+  const [listEpisodes, setListEpisode] = useState<EpisodesResultsInterface[]>(
+    [] as EpisodesResultsInterface[]
+  );
+
+  const [loadingInfo, setLoadingInfo] = useState(true);
+
+  const [episodeId, setEpisodeId] = useState("");
+  const [servidorEpisode, setServidorEpisode] = useState("vidcdn");
+  const [episodesResults, setEpisodesResults] =
+    useState<AnimeEpisodeResultsInterface>({} as AnimeEpisodeResultsInterface);
+  const [loadingEp, setLoadingEp] = useState(true);
+  const baseUrl = "play-api.php";
 
   useEffect(() => {
     setLoading(true);
 
     typeGet == "recent-episodes"
-      ? ApiIAnime.get("recent-release")
-          .then((res) => setRecentEpisodes(res.data))
+      ? ApiIAnime.get(`${baseUrl}?latest`)
+          .then((res) => {
+            setRecentEpisodes(res.data);
+          })
           .finally(() => {
             return setTypeGet("top-airing");
           })
       : typeGet == "top-airing"
-      ? ApiIAnime.get(`${typeGet}`)
-          .then((res) => setTopAiring(res.data))
-          .finally(() => {
-            return setTypeGet("popular");
+      ? ApiIAnime.get(`${baseUrl}?populares`)
+          .then((res) => {
+            setTopAiring(res.data);
           })
-      : typeGet == "popular" &&
-        ApiIAnime.get(`${typeGet}`)
-          .then((res) => setPopular(res.data))
-          .finally(() => setLoading(false));
+          .finally(() => {
+            return setTypeGet("dub");
+          })
+      : typeGet == "dub" &&
+        ApiIAnime.get(`${baseUrl}?categoria=dublado`)
+          .then((res) => setDubs(res.data))
+          .finally(() => {
+            return setLoading(false);
+          });
   }, [typeGet]);
 
   useEffect(() => {
@@ -71,20 +88,46 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
   useEffect(() => {
     setLoadingInfo(true);
 
-    animeIdInfo !== "" && animeIdInfo != "undefined" &&
-      ApiIAnime.get(`/anime-details/${animeIdInfo}`)
+    animeIdInfo !== "" &&
+      animeIdInfo != "undefined" &&
+      ApiIAnime.get(`${baseUrl}?info=${animeIdInfo}`)
         .then((res) => {
-          setAnimeInfo(res.data);
+          setAnimeInfo(res.data[0]);
+        })
+        .finally(() => setLoadingInfo(false));
+
+    setLoadingInfo(true);
+    animeIdInfo !== "" &&
+      ApiIAnime.get(`${baseUrl}?cat_id=${animeIdInfo}`)
+        .then((res) => {
+          setListEpisode(res.data);
         })
         .finally(() => setLoadingInfo(false));
   }, [animeIdInfo]);
+
+  useEffect(() => {
+    setLoadingInfo(true);
+    setLoadingEp(true);
+
+    episodeId !== "" &&
+      episodeId != "undefined" &&
+      ApiIAnime.get(`/${baseUrl}?episodios=${episodeId}`)
+        .then((res) => {
+          console.log(res.data)
+          setEpisodesResults(res.data);
+        })
+        .finally(() => {
+          setLoadingInfo(false);
+          setLoadingEp(false);
+        });
+  }, [episodeId, servidorEpisode]);
 
   return (
     <AnimeContext.Provider
       value={{
         recentEpisodes,
         topAiring,
-        popular,
+        dubs,
         inputResults,
         loading,
         setLoading,
@@ -93,7 +136,12 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
         animeInfo,
         setAnimeIdInfo,
         loadingInfo,
-        setLoadingInfo
+        setLoadingInfo,
+        listEpisodes,
+        setEpisodeId,
+        setServidorEpisode,
+        episodesResults,
+        loadingEp,
       }}
     >
       {children}

@@ -4,31 +4,19 @@ export interface ContextAnimeInterface {
   children: ReactNode;
 }
 
-export interface AnimesResultReleaseInterface {
-  episodeId: string;
-  animeId?: string;
-  animeTitle: string;
-  episodeNum: string;
-  subOrDub: string;
-  animeImg: string;
-  episodeUrl: string;
+export interface AnimesResultsApi {
+  video_id: string;
+  category_id?: string;
+  title?: string;
+  category_name?: string;
+  category_image: string;
+  id?: string;
 }
 
-export interface AnimesResultsTopAiringInterface {
-  animeId: string;
-  animeTitle: string;
-  animeImg: string;
-  latestEp: string;
-  animeUrl: string;
-  genres: [""];
-}
-
-export interface AnimesResultsPopularInterface {
-  animeId: string;
-  animeTitle: string;
-  animeImg: string;
-  releasedDate: string;
-  animeUrl: string;
+export interface EpisodesResultsInterface{
+  video_id: string;
+  category_id: string;
+  title: string;
 }
 
 export interface InputResultsInterface {
@@ -39,29 +27,28 @@ export interface InputResultsInterface {
   status: string;
 }
 
-
 export interface AnimeInfoResultsInteface {
-    animeTitle: string;
-    type: string;
-    releasedDate: string;
-    status: string;
-    genres: [""];
-    otherNames: string;
-    synopsis: string;
-    animeImg: string;
-    totalEpisodes: string;
-    episodesList: [
-      {
-        episodeId: string;
-        episodeNum: string;
-        episodeUrl: string;
-      }
-    ];
-  }
+  id: string;
+  category_name: string;
+  category_image: string;
+  category_description: string;
+  category_genres: string;
+  ano: string;
+  count: string;
+  off: string;
+}
+
+export interface AnimeEpisodeResultsInterface {
+  video_id: string;
+  category_id: string;
+  location: string;
+  locationsd: string;
+}
+
 export interface AnimeContextInterface {
-  topAiring: AnimesResultsTopAiringInterface[];
-  recentEpisodes: AnimesResultReleaseInterface[];
-  popular: AnimesResultsPopularInterface[];
+  topAiring: AnimesResultsApi[];
+  recentEpisodes: AnimesResultsApi[];
+  dubs: AnimesResultsApi[];
   loading: boolean;
   setSeachInput: React.Dispatch<React.SetStateAction<string>>;
   inputResults: InputResultsInterface[];
@@ -69,6 +56,11 @@ export interface AnimeContextInterface {
   setAnimeIdInfo: React.Dispatch<React.SetStateAction<string>>;
   animeInfo: AnimeInfoResultsInteface;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  loadingInfo: boolean
+  loadingInfo: boolean;
   setLoadingInfo: React.Dispatch<React.SetStateAction<boolean>>;
+  setServidorEpisode: React.Dispatch<React.SetStateAction<string>>;
+  setEpisodeId: React.Dispatch<React.SetStateAction<string>>;
+  episodesResults: AnimeEpisodeResultsInterface;
+  loadingEp: boolean;
+  listEpisodes: EpisodesResultsInterface[]
 }

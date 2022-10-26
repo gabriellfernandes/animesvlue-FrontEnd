@@ -6,7 +6,7 @@ import { DivConteinerAnimes } from "./styled";
 
 
 export const AnimesListGeneric = ({ type }: AnimesListGenericInterface) => {
-  const { recentEpisodes, topAiring, popular, loading } =
+  const { recentEpisodes, topAiring, dubs, loading } =
     useContext(AnimeContext);
     
   return (
@@ -15,7 +15,7 @@ export const AnimesListGeneric = ({ type }: AnimesListGenericInterface) => {
         <DivConteinerAnimes>
           {!loading && type === "recent-episodes" ? (
             <AnimesCarousel
-              title="Recent Episodes"
+              title="Ultimos Lançados"
               list={recentEpisodes}
             ></AnimesCarousel>
           ) : (
@@ -23,16 +23,16 @@ export const AnimesListGeneric = ({ type }: AnimesListGenericInterface) => {
           )}
           {!loading && type === "top-airing" ? (
             <AnimesCarousel
-              title="Top Airing"
+              title="Popular"
               list={topAiring}
             ></AnimesCarousel>
           ) : (
             <></>
           )}
-          {!loading && type === "popular" ? (
+          {!loading && type === "dub" ? (
             <AnimesCarousel
-              title="Popular"
-              list={popular}
+              title="Dublados"
+              list={dubs}
             ></AnimesCarousel>
           ) : (
             <></>
