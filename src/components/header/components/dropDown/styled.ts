@@ -24,6 +24,7 @@ export const DivDropDown = styled.div`
       a {
         color: var(--colorDropDown);;
         cursor: pointer;
+        text-transform: capitalize;
       }
     }
   }

@@ -12,6 +12,8 @@ export const AnimeInfoPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    setLoadingInfo(true)
+    
     id != "" && setAnimeIdInfo(id!);
     if (id == "undefined") {
       setLoading(true);

@@ -1,6 +1,6 @@
 import { info } from "console";
-import { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { AnimeEpisodesList } from "../../../../components/animesEp/animeEpisodes";
 import { CardAnime } from "../../../../components/CardAnime/cardAnime";
 import { AnimeContext } from "../../../../contexts/animesContext";
@@ -15,6 +15,7 @@ import {
 export const InfoAnime = () => {
   const { animeInfo, topAiring, listEpisodes } = useContext(AnimeContext);
   const {id} = useParams()
+
   return (
     <>
       <DivConteinerInfoTopAling>
@@ -34,7 +35,7 @@ export const InfoAnime = () => {
                 <h2>Generos: <span>{animeInfo.category_genres}</span></h2>
               </div>
               <h2>
-                Episódios: <span>{animeInfo.count}</span>
+                Episódios: <span>{listEpisodes.length}</span>
               </h2>
               <h2>
                 Ano: <span>{animeInfo.ano}</span>

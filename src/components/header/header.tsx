@@ -6,7 +6,8 @@ import { BiSearchAlt } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
 import logo from "../../assets/logo3.png";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { match } from "assert";
 
 export const Header = () => {
   const [seachInputHeader, setSeachInputHeader] = useState("");
@@ -15,14 +16,11 @@ export const Header = () => {
     <>
       <HeaderMobile key="headerMobile" />
       <HeaderConteiner>
-        <img src={logo} alt="Logo" className="logo" />
+        <img src={logo} alt="Logo" className="logo" onClick={() => navigate("/")}/>
         <nav>
           <UlHeader>
             <li>
-              <DropDownAnime />
-            </li>
-            <li>
-              <a href="#">Calendar</a>
+              <Link to={`/anime/info/${Math.floor(Math.random() * 200 - 1) + 1}`}>Anime</Link>
             </li>
             <li>
               <DropDownGeners />
@@ -31,7 +29,7 @@ export const Header = () => {
               <a href="#">Discord</a>
             </li>
             <li>
-              <a href="#">Explore</a>
+              <Link to={`/anime/info/${Math.floor(Math.random() * 400 - 200) + 200}`}>Explore</Link>
             </li>
             <li>
               <a href="#">Historic</a>

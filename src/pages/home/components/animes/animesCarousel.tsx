@@ -3,15 +3,24 @@ import { Carousel } from "@mantine/carousel";
 import { IconArrowRight, IconArrowLeft } from "@tabler/icons";
 import { CardAnime } from "../../../../components/CardAnime/cardAnime";
 import { DivAnimeList } from "./styled";
+import { useEffect, useState } from "react";
 
 export const AnimesCarousel = ({ title, list }: AnimesCarouselInterface) => {
+  const [width, setWidth] = useState(372)
+  useEffect(() => {
+    if(title == "Ultimos Lançados"){
+      setWidth(372)
+    }else{
+      setWidth(372)
+    }
+  },[title])
   return (
     <div>
       <h2>{title}</h2>
       <span>-----</span>
         <Carousel
           slideSize="18%"
-          height={372}
+          height={width}
           align="start"
           slideGap="xl"
           controlsOffset="xl"
@@ -21,7 +30,6 @@ export const AnimesCarousel = ({ title, list }: AnimesCarouselInterface) => {
           previousControlIcon={<IconArrowLeft size={29} />}
         >
           {list.map((elem) => {
-            console.log(elem.video_id)
             return (
               <Carousel.Slide>
                 <DivAnimeList>

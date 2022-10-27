@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Header } from "../../components/header/header";
 import { AnimeContext } from "../../contexts/animesContext";
 import { AnimeEp } from "./components/animeEp";
+import { DivConteiner, EpConteiner } from "./styled";
 
 export const AnimeEpisodePage = () => {
   const {
@@ -32,7 +33,9 @@ export const AnimeEpisodePage = () => {
   return (
     <>
       <Header />
-      {!loadingEp ? <AnimeEp /> : <></>}
+      <DivConteiner>
+        <EpConteiner>{!loadingEp ? <AnimeEp /> : <div>Carregando...</div>}</EpConteiner>
+      </DivConteiner>
     </>
   );
 };

@@ -6,6 +6,7 @@ import {
   AnimesResultsApi,
   ContextAnimeInterface,
   EpisodesResultsInterface,
+  GernesAnimeInterface,
   InputResultsInterface,
 } from "../interfaces/animesContextInterface/animeContextInterface";
 import ApiIAnime from "../services/apiAnimes";
@@ -46,6 +47,8 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
     useState<AnimeEpisodeResultsInterface>({} as AnimeEpisodeResultsInterface);
   const [loadingEp, setLoadingEp] = useState(true);
   const baseUrl = "play-api.php";
+  const [geners, setGeners] = useState("");
+  const [animesgeners, getAnimesGerers] = useState<GernesAnimeInterface[]>([] as GernesAnimeInterface[]);
 
   useEffect(() => {
     setLoading(true);
@@ -75,15 +78,20 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
   }, [typeGet]);
 
   useEffect(() => {
-    setLoading(true);
+    inputResults.length == 0 &&
+      ApiIAnime.get(`${baseUrl}??latest`).then((res) => {
+        setInputResults(res.data);
+      });
+  }, []);
 
-    seachInput !== "" &&
-      ApiIAnime.get(`search?keyw=${seachInput}`)
-        .then((res) => {
-          setInputResults(res.data);
-        })
+  useEffect(() => {
+    if (geners !== "") {
+      setLoading(true);
+      ApiIAnime.get(`${baseUrl}?categoria=${geners}`)
+        .then((res) => getAnimesGerers(res.data))
         .finally(() => setLoading(false));
-  }, [seachInput]);
+    }
+  }, [geners]);
 
   useEffect(() => {
     setLoadingInfo(true);
@@ -113,8 +121,7 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
       episodeId != "undefined" &&
       ApiIAnime.get(`/${baseUrl}?episodios=${episodeId}`)
         .then((res) => {
-          console.log(res.data)
-          setEpisodesResults(res.data);
+          setEpisodesResults(res.data[0]);
         })
         .finally(() => {
           setLoadingInfo(false);
@@ -142,6 +149,8 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
         setServidorEpisode,
         episodesResults,
         loadingEp,
+        animesgeners,
+        setGeners
       }}
     >
       {children}

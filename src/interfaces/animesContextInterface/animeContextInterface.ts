@@ -20,11 +20,18 @@ export interface EpisodesResultsInterface{
 }
 
 export interface InputResultsInterface {
-  animeId: string;
-  animeTitle: string;
-  animeUrl: string;
-  animeImg: string;
-  status: string;
+  video_id: string;
+  category_id?: string;
+  title?: string;
+  category_name?: string;
+  category_image: string;
+  id?: string;
+}
+
+export interface GernesAnimeInterface{
+  id: string;
+  category_name: string;
+  category_image: string;
 }
 
 export interface AnimeInfoResultsInteface {
@@ -43,6 +50,7 @@ export interface AnimeEpisodeResultsInterface {
   category_id: string;
   location: string;
   locationsd: string;
+  title: string;
 }
 
 export interface AnimeContextInterface {
@@ -63,4 +71,6 @@ export interface AnimeContextInterface {
   episodesResults: AnimeEpisodeResultsInterface;
   loadingEp: boolean;
   listEpisodes: EpisodesResultsInterface[]
+  animesgeners: GernesAnimeInterface[]
+  setGeners: React.Dispatch<React.SetStateAction<string>>;
 }
