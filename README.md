@@ -1,4 +1,4 @@
-A ideia desse porjeto é refazer um site de anime que fiz a muito tempo agora em react e adicionar novas funções como filtragem de anime/ adicionar o anime nos favortios, comentar no anime.
+A ideia desse projeto é refazer um site de anime que fiz há muito tempo agora em react e adicionar novas funções como filtragem de anime/ adicionar o anime nos favoritos, comentar no anime.
 
 Home page:
 ![image](https://user-images.githubusercontent.com/96635752/198859754-5d40cb83-6f8d-45fe-9b11-8de6ad771784.png)
