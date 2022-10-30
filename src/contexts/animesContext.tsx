@@ -48,7 +48,11 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
   const [loadingEp, setLoadingEp] = useState(true);
   const baseUrl = "play-api.php";
   const [geners, setGeners] = useState("");
-  const [animesgeners, getAnimesGerers] = useState<GernesAnimeInterface[]>([] as GernesAnimeInterface[]);
+  const [animesgeners, getAnimesGerers] = useState<GernesAnimeInterface[]>(
+    [] as GernesAnimeInterface[]
+  );
+  const [nextEp, setNetxEp] = useState<AnimeEpisodeResultsInterface[]>([] as AnimeEpisodeResultsInterface[]);
+  const [previosEp, setPreviosEp] = useState<AnimeEpisodeResultsInterface[]>([] as AnimeEpisodeResultsInterface[])
 
   useEffect(() => {
     setLoading(true);
@@ -127,7 +131,29 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
           setLoadingInfo(false);
           setLoadingEp(false);
         });
+
+   
   }, [episodeId, servidorEpisode]);
+
+  useEffect(() => {
+    episodeId !== "" &&
+    episodeId != "undefined" &&
+    ApiIAnime.get(
+      `/${baseUrl}?episodios=${episodeId}&catid=${animeIdInfo}&next`
+    ).then((res) => {
+      setNetxEp(res.data);
+    });
+  }, [nextEp, episodeId])
+
+  useEffect(() => {
+    episodeId !== "" &&
+    episodeId != "undefined" &&
+    ApiIAnime.get(
+      `/${baseUrl}?episodios=${episodeId}&catid=${animeIdInfo}&previous`
+    ).then((res) => {
+      setPreviosEp(res.data);
+    });
+  }, [previosEp, episodeId])
 
   return (
     <AnimeContext.Provider
@@ -148,9 +174,13 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
         setEpisodeId,
         setServidorEpisode,
         episodesResults,
+        nextEp,
+        setNetxEp,
+        previosEp,
+        setPreviosEp,
         loadingEp,
         animesgeners,
-        setGeners
+        setGeners,
       }}
     >
       {children}

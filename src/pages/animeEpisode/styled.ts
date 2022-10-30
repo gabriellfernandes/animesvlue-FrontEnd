@@ -39,6 +39,19 @@ export const DivConteinerPlayer = styled.div`
   width: 81%;
   margin-right: 10px;
 
+  gap: 1rem;
+
+  button{
+    height: 40px;
+    font-size: 1.5rem;
+    background-color:#171515; 
+    color: #fff;
+
+    &:hover{
+      background-color: #0062AB;
+    }
+  }
+
   @media (max-width: 850px) {
     width: 100%;
     margin-right: 0px;

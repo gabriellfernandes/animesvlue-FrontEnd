@@ -10,15 +10,24 @@ import {
   DivSynope,
 } from "../styled";
 import { CardAnime } from "../../../components/CardAnime/cardAnime";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Player } from "./player";
 
 export const AnimeEp = () => {
-  const { episodesResults, animeInfo, listEpisodes, topAiring } =
-    useContext(AnimeContext);
+  const {
+    episodesResults,
+    animeInfo,
+    listEpisodes,
+    topAiring,
+    nextEp,
+    setNetxEp,
+    previosEp,
+    setPreviosEp
+  } = useContext(AnimeContext);
   const [server, setServer] = useState(
     `${episodesResults.locationsd.length != 0 ? "2" : "1"}`
   );
+  const navigate = useNavigate();
   const { id } = useParams();
   return (
     <>
@@ -57,8 +66,42 @@ export const AnimeEp = () => {
         >
           HD
         </button>
-        <button>Proximo episodio</button>
-        <button>Episodio anterior</button>
+        {nextEp != null ? (
+          <button
+            onClick={() => {
+              navigate(`/anime/episode/${nextEp[0].video_id}/${animeInfo.id}`);
+              setPreviosEp([])
+            }}
+          >
+            Proximo episodio
+          </button>
+        ) : (
+          <button
+            disabled={true}
+            style={{ cursor: "initial", backgroundColor: "gray" }}
+          >
+            Proximo episodio
+          </button>
+        )}
+{
+  previosEp != null ? (
+    <button
+      onClick={() => {
+        navigate(`/anime/episode/${previosEp[0].video_id}/${animeInfo.id}`);
+        setNetxEp([])
+      }}
+    >
+      Episodio anterior
+    </button>
+  ) : (
+    <button
+      disabled={true}
+      style={{ cursor: "initial", backgroundColor: "gray" }}
+    >
+      Episodio anterior
+    </button>
+  )}
+ 
         <DivInfo>
           <div className="divConteinerInfo">
             <img

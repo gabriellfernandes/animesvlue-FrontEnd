@@ -69,6 +69,10 @@ export interface AnimeContextInterface {
   setServidorEpisode: React.Dispatch<React.SetStateAction<string>>;
   setEpisodeId: React.Dispatch<React.SetStateAction<string>>;
   episodesResults: AnimeEpisodeResultsInterface;
+  nextEp: AnimeEpisodeResultsInterface[];
+  setNetxEp: React.Dispatch<React.SetStateAction<AnimeEpisodeResultsInterface[]>>;
+  previosEp:AnimeEpisodeResultsInterface[]
+  setPreviosEp:React.Dispatch<React.SetStateAction<AnimeEpisodeResultsInterface[]>>
   loadingEp: boolean;
   listEpisodes: EpisodesResultsInterface[]
   animesgeners: GernesAnimeInterface[]
