@@ -82,7 +82,7 @@ export const OpeMenu = styled.div`
       width: 99%;
       text-align: center;
       border: 0.5px solid black;
-      height: calc(100% / 6);
+      height: calc(100% / 5);
       display: flex;
       align-items: center;
       justify-content: center;

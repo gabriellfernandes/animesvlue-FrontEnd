@@ -1,4 +1,3 @@
-import { DropDownAnime } from "./components/dropDown/dropDownAnime/dropDownAnime";
 import { DropDownGeners } from "./components/dropDown/dropDownGeners/dropDownGeners";
 import { HeaderMobile } from "./components/headerMobile/headerMobile";
 import { HeaderConteiner, InputHeader, UlHeader } from "./styled";
