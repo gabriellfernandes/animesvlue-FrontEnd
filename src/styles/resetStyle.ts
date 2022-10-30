@@ -31,6 +31,7 @@ export const GlobalStyles = createGlobalStyle`
         background: var(--color-grey-1);
         color: var(--color-grey-5);
         height: 100vh;
+        background-color: #0062AB;
     }
     ::-webkit-scrollbar {
         width: 10px;

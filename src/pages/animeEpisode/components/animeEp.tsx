@@ -22,7 +22,7 @@ export const AnimeEp = () => {
     nextEp,
     setNetxEp,
     previosEp,
-    setPreviosEp
+    setPreviosEp,
   } = useContext(AnimeContext);
   const [server, setServer] = useState(
     `${episodesResults.locationsd.length != 0 ? "2" : "1"}`
@@ -70,7 +70,7 @@ export const AnimeEp = () => {
           <button
             onClick={() => {
               navigate(`/anime/episode/${nextEp[0].video_id}/${animeInfo.id}`);
-              setPreviosEp([])
+              setNetxEp([]);
             }}
           >
             Proximo episodio
@@ -83,25 +83,26 @@ export const AnimeEp = () => {
             Proximo episodio
           </button>
         )}
-{
-  previosEp != null ? (
-    <button
-      onClick={() => {
-        navigate(`/anime/episode/${previosEp[0].video_id}/${animeInfo.id}`);
-        setNetxEp([])
-      }}
-    >
-      Episodio anterior
-    </button>
-  ) : (
-    <button
-      disabled={true}
-      style={{ cursor: "initial", backgroundColor: "gray" }}
-    >
-      Episodio anterior
-    </button>
-  )}
- 
+        {previosEp != null ? (
+          <button
+            onClick={() => {
+              navigate(
+                `/anime/episode/${previosEp[0].video_id}/${animeInfo.id}`
+              );
+              setPreviosEp([]);
+            }}
+          >
+            Episodio anterior
+          </button>
+        ) : (
+          <button
+            disabled={true}
+            style={{ cursor: "initial", backgroundColor: "gray" }}
+          >
+            Episodio anterior
+          </button>
+        )}
+
         <DivInfo>
           <div className="divConteinerInfo">
             <img
