@@ -13,7 +13,7 @@ export interface AnimesResultsApi {
   id?: string;
 }
 
-export interface EpisodesResultsInterface{
+export interface EpisodesResultsInterface {
   video_id: string;
   category_id: string;
   title: string;
@@ -28,7 +28,7 @@ export interface InputResultsInterface {
   id?: string;
 }
 
-export interface GernesAnimeInterface{
+export interface GernesAnimeInterface {
   id: string;
   category_name: string;
   category_image: string;
@@ -53,6 +53,17 @@ export interface AnimeEpisodeResultsInterface {
   title: string;
 }
 
+export interface ApiRequestInterface {
+  restLink: string;
+  dataBase:
+    | React.Dispatch<React.SetStateAction<AnimesResultsApi[]>>
+    | React.Dispatch<React.SetStateAction<EpisodesResultsInterface[]>>
+    | React.Dispatch<React.SetStateAction<InputResultsInterface[]>>
+    | React.Dispatch<React.SetStateAction<AnimeInfoResultsInteface[]>>
+    | React.Dispatch<React.SetStateAction<AnimeEpisodeResultsInterface[]>>
+    | React.Dispatch<React.SetStateAction<GernesAnimeInterface[]>>;
+}
+
 export interface AnimeContextInterface {
   topAiring: AnimesResultsApi[];
   recentEpisodes: AnimesResultsApi[];
@@ -62,19 +73,23 @@ export interface AnimeContextInterface {
   inputResults: InputResultsInterface[];
   seachInput: string;
   setAnimeIdInfo: React.Dispatch<React.SetStateAction<string>>;
-  animeInfo: AnimeInfoResultsInteface;
+  animeInfo: AnimeInfoResultsInteface[];
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   loadingInfo: boolean;
   setLoadingInfo: React.Dispatch<React.SetStateAction<boolean>>;
   setServidorEpisode: React.Dispatch<React.SetStateAction<string>>;
   setEpisodeId: React.Dispatch<React.SetStateAction<string>>;
-  episodesResults: AnimeEpisodeResultsInterface;
+  episodesResults: AnimeEpisodeResultsInterface[];
   nextEp: AnimeEpisodeResultsInterface[];
-  setNetxEp: React.Dispatch<React.SetStateAction<AnimeEpisodeResultsInterface[]>>;
-  previosEp:AnimeEpisodeResultsInterface[]
-  setPreviosEp:React.Dispatch<React.SetStateAction<AnimeEpisodeResultsInterface[]>>
+  setNetxEp: React.Dispatch<
+    React.SetStateAction<AnimeEpisodeResultsInterface[]>
+  >;
+  previosEp: AnimeEpisodeResultsInterface[];
+  setPreviosEp: React.Dispatch<
+    React.SetStateAction<AnimeEpisodeResultsInterface[]>
+  >;
   loadingEp: boolean;
-  listEpisodes: EpisodesResultsInterface[]
-  animesgeners: GernesAnimeInterface[]
+  listEpisodes: EpisodesResultsInterface[];
+  animesgeners: GernesAnimeInterface[];
   setGeners: React.Dispatch<React.SetStateAction<string>>;
 }

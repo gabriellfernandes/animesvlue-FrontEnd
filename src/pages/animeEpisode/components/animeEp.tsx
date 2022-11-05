@@ -25,7 +25,7 @@ export const AnimeEp = () => {
     setPreviosEp,
   } = useContext(AnimeContext);
   const [server, setServer] = useState(
-    `${episodesResults.locationsd.length != 0 ? "2" : "1"}`
+    `${episodesResults[0].locationsd.length != 0 ? "2" : "1"}`
   );
   const navigate = useNavigate();
   const { id } = useParams();
@@ -37,14 +37,14 @@ export const AnimeEp = () => {
           <Player
             link={`${
               server == "1"
-                ? episodesResults.location
-                : episodesResults.locationsd
+                ? episodesResults[0].location
+                : episodesResults[0].locationsd
             }`}
           ></Player>
         </div>
         <button
           onClick={() => {
-            if (episodesResults.location.length != 0) {
+            if (episodesResults[0].location.length != 0) {
               setServer("1");
               toast.success("SD");
             } else {
@@ -56,7 +56,7 @@ export const AnimeEp = () => {
         </button>
         <button
           onClick={() => {
-            if (episodesResults.locationsd.length != 0) {
+            if (episodesResults[0].locationsd.length != 0) {
               setServer("2");
               toast.success("HD");
             } else {
@@ -69,7 +69,7 @@ export const AnimeEp = () => {
         {nextEp != null ? (
           <button
             onClick={() => {
-              navigate(`/anime/episode/${nextEp[0].video_id}/${animeInfo.id}`);
+              navigate(`/anime/episode/${nextEp[0].video_id}/${animeInfo[0].id}`);
               setNetxEp([]);
             }}
           >
@@ -87,7 +87,7 @@ export const AnimeEp = () => {
           <button
             onClick={() => {
               navigate(
-                `/anime/episode/${previosEp[0].video_id}/${animeInfo.id}`
+                `/anime/episode/${previosEp[0].video_id}/${animeInfo[0].id}`
               );
               setPreviosEp([]);
             }}
@@ -106,14 +106,14 @@ export const AnimeEp = () => {
         <DivInfo>
           <div className="divConteinerInfo">
             <img
-              src={`https://cdn.appanimeplus.tk/img/${animeInfo.category_image}`}
+              src={`https://cdn.appanimeplus.tk/img/${animeInfo[0].category_image}`}
               alt=""
             />
             <div className="info">
-              <h2>Titulo: {episodesResults.title}</h2>
+              <h2>Titulo: {episodesResults[0].title}</h2>
               <div className="divGeners">
                 <h2>
-                  Generos: <span>{animeInfo.category_genres}</span>
+                  Generos: <span>{animeInfo[0].category_genres}</span>
                 </h2>
               </div>
             </div>
@@ -121,14 +121,14 @@ export const AnimeEp = () => {
         </DivInfo>
         <DivSynope>
           <h2>
-            Sinopse: <span>{animeInfo.category_description}</span>
+            Sinopse: <span>{animeInfo[0].category_description}</span>
           </h2>
         </DivSynope>
 
         <DivEpisodio>
           <AnimeEpisodesList
-            animeImg={animeInfo.category_image}
-            animeTitle={animeInfo.category_name}
+            animeImg={animeInfo[0].category_image}
+            animeTitle={animeInfo[0].category_name}
             eplist={listEpisodes}
           />
         </DivEpisodio>

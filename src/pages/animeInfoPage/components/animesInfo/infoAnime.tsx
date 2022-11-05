@@ -22,36 +22,36 @@ export const InfoAnime = () => {
         <DivInfo>
           <div className="divConteinerInfo">
             <img
-              src={`https://cdn.appanimeplus.tk/img/${animeInfo.category_image}`}
+              src={`https://cdn.appanimeplus.tk/img/${animeInfo[0].category_image}`}
               alt=""
             />
 
             <div className="info">
-              <h2>Titulo: {animeInfo.category_name}</h2>
+              <h2>Titulo: {animeInfo[0].category_name}</h2>
               <h3>
-                Titulo Original: <span>{animeInfo.category_name}</span>
+                Titulo Original: <span>{animeInfo[0].category_name}</span>
               </h3>
               <div className="divGeners">
-                <h2>Generos: <span>{animeInfo.category_genres}</span></h2>
+                <h2>Generos: <span>{animeInfo[0].category_genres}</span></h2>
               </div>
               <h2>
                 Episódios: <span>{listEpisodes.length}</span>
               </h2>
               <h2>
-                Ano: <span>{animeInfo.ano}</span>
+                Ano: <span>{animeInfo[0].ano}</span>
               </h2>
             </div>
           </div>
         </DivInfo>
         <DivSynope>
           <h2>
-            Sinopse: <span>{animeInfo.category_description}</span>
+            Sinopse: <span>{animeInfo[0].category_description}</span>
           </h2>
         </DivSynope>
         <DivEpisodio>
           <AnimeEpisodesList
-            animeImg={animeInfo.category_image}
-            animeTitle={animeInfo.category_name}
+            animeImg={animeInfo[0].category_image}
+            animeTitle={animeInfo[0].category_name}
             eplist={listEpisodes}
             key="animeEpisodesList"
           />

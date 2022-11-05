@@ -12,8 +12,8 @@ export const AnimeInfoPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setLoadingInfo(true)
-    
+    setLoadingInfo(true);
+
     id != "" && setAnimeIdInfo(id!);
     if (id == "undefined") {
       setLoading(true);
@@ -32,7 +32,10 @@ export const AnimeInfoPage = () => {
               <InfoAnime key="animesInfo" />
             </>
           ) : (
-            <div>Carregando...</div>
+            <div  className="divLoading">
+               <img src="https://pa1.narvii.com/6618/579af2d8df43ca612e38b09a103bcde82b7d92aa_hq.gif" alt="loading" width="580px" style={{display:"flex", alignItems:"center", justifyContent:"center", justifyItems: "center"}}/>
+            </div>
+            
           )}
         </InfoConteiner>
       </DivConteiner>

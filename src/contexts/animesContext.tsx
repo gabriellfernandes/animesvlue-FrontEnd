@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { genericApiRequest, baseUrl } from "../config/funtions";
 import {
   AnimeContextInterface,
   AnimeEpisodeResultsInterface,
@@ -32,8 +33,8 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
   const [loading, setLoading] = useState(true);
   const [seachInput, setSeachInput] = useState("");
   const [animeIdInfo, setAnimeIdInfo] = useState("");
-  const [animeInfo, setAnimeInfo] = useState<AnimeInfoResultsInteface>(
-    {} as AnimeInfoResultsInteface
+  const [animeInfo, setAnimeInfo] = useState<AnimeInfoResultsInteface[]>(
+    [] as AnimeInfoResultsInteface[]
   );
   const [listEpisodes, setListEpisode] = useState<EpisodesResultsInterface[]>(
     [] as EpisodesResultsInterface[]
@@ -43,57 +44,58 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
 
   const [episodeId, setEpisodeId] = useState("");
   const [servidorEpisode, setServidorEpisode] = useState("vidcdn");
-  const [episodesResults, setEpisodesResults] =
-    useState<AnimeEpisodeResultsInterface>({} as AnimeEpisodeResultsInterface);
+  const [episodesResults, setEpisodesResults] = useState<
+    AnimeEpisodeResultsInterface[]
+  >([] as AnimeEpisodeResultsInterface[]);
   const [loadingEp, setLoadingEp] = useState(true);
-  const baseUrl = "play-api.php";
   const [geners, setGeners] = useState("");
   const [animesgeners, getAnimesGerers] = useState<GernesAnimeInterface[]>(
     [] as GernesAnimeInterface[]
   );
-  const [nextEp, setNetxEp] = useState<AnimeEpisodeResultsInterface[]>([] as AnimeEpisodeResultsInterface[]);
-  const [previosEp, setPreviosEp] = useState<AnimeEpisodeResultsInterface[]>([] as AnimeEpisodeResultsInterface[])
+  const [nextEp, setNetxEp] = useState<AnimeEpisodeResultsInterface[]>(
+    [] as AnimeEpisodeResultsInterface[]
+  );
+  const [previosEp, setPreviosEp] = useState<AnimeEpisodeResultsInterface[]>(
+    [] as AnimeEpisodeResultsInterface[]
+  );
 
   useEffect(() => {
     setLoading(true);
-
     typeGet == "recent-episodes"
-      ? ApiIAnime.get(`${baseUrl}?latest`)
-          .then((res) => {
-            setRecentEpisodes(res.data);
-          })
-          .finally(() => {
-            return setTypeGet("top-airing");
-          })
+      ? genericApiRequest({
+          restLink: `?latest`,
+          dataBase: setRecentEpisodes,
+        }).finally(() => {
+          return setTypeGet("top-airing");
+        })
       : typeGet == "top-airing"
-      ? ApiIAnime.get(`${baseUrl}?populares`)
-          .then((res) => {
-            setTopAiring(res.data);
-          })
-          .finally(() => {
-            return setTypeGet("dub");
-          })
+      ? genericApiRequest({
+          restLink: `?populares`,
+          dataBase: setTopAiring,
+        }).finally(() => {
+          return setTypeGet("dub");
+        })
       : typeGet == "dub" &&
-        ApiIAnime.get(`${baseUrl}?categoria=dublado`)
-          .then((res) => setDubs(res.data))
-          .finally(() => {
-            return setLoading(false);
-          });
+        genericApiRequest({
+          restLink: `?categoria=dublado`,
+          dataBase: setDubs,
+        }).finally(() => {
+          return setLoading(false);
+        });
   }, [typeGet]);
 
   useEffect(() => {
     inputResults.length == 0 &&
-      ApiIAnime.get(`${baseUrl}??latest`).then((res) => {
-        setInputResults(res.data);
-      });
+      genericApiRequest({ restLink: `??latest`, dataBase: setInputResults });
   }, []);
 
   useEffect(() => {
     if (geners !== "") {
       setLoading(true);
-      ApiIAnime.get(`${baseUrl}?categoria=${geners}`)
-        .then((res) => getAnimesGerers(res.data))
-        .finally(() => setLoading(false));
+      genericApiRequest({
+        restLink: `?categoria=${geners}`,
+        dataBase: getAnimesGerers,
+      }).finally(() => setLoading(false));
     }
   }, [geners]);
 
@@ -102,11 +104,8 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
 
     animeIdInfo !== "" &&
       animeIdInfo != "undefined" &&
-      ApiIAnime.get(`${baseUrl}?info=${animeIdInfo}`)
-        .then((res) => {
-          setAnimeInfo(res.data[0]);
-        })
-        .finally(() => setLoadingInfo(false));
+      genericApiRequest({ restLink: `?info=${animeIdInfo}`, dataBase: setAnimeInfo });
+    ApiIAnime.get(`${baseUrl}`).finally(() => setLoadingInfo(false));
 
     setLoadingInfo(true);
     animeIdInfo !== "" &&
@@ -123,37 +122,32 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
 
     episodeId !== "" &&
       episodeId != "undefined" &&
-      ApiIAnime.get(`/${baseUrl}?episodios=${episodeId}`)
-        .then((res) => {
-          setEpisodesResults(res.data[0]);
-        })
-        .finally(() => {
-          setLoadingInfo(false);
-          setLoadingEp(false);
-        });
-
-   
+      genericApiRequest({
+        restLink: `?episodios=${episodeId}`,
+        dataBase: setEpisodesResults,
+      }).finally(() => {
+        setLoadingInfo(false);
+        setLoadingEp(false);
+      });
   }, [episodeId, servidorEpisode]);
 
   useEffect(() => {
     episodeId !== "" &&
-    episodeId != "undefined" &&
-    ApiIAnime.get(
-      `/${baseUrl}?episodios=${episodeId}&catid=${animeIdInfo}&next`
-    ).then((res) => {
-      setNetxEp(res.data);
-    });
-  }, [nextEp, episodeId])
+      episodeId != "undefined" &&
+      genericApiRequest({
+        restLink: `?episodios=${episodeId}&catid=${animeIdInfo}&next`,
+        dataBase: setNetxEp,
+      });
+  }, [nextEp, episodeId]);
 
   useEffect(() => {
     episodeId !== "" &&
-    episodeId != "undefined" &&
-    ApiIAnime.get(
-      `/${baseUrl}?episodios=${episodeId}&catid=${animeIdInfo}&previous`
-    ).then((res) => {
-      setPreviosEp(res.data);
-    });
-  }, [previosEp, episodeId])
+      episodeId != "undefined" &&
+      genericApiRequest({
+        restLink: `?episodios=${episodeId}&catid=${animeIdInfo}&previous`,
+        dataBase: setPreviosEp,
+      });
+  }, [previosEp, episodeId]);
 
   return (
     <AnimeContext.Provider
