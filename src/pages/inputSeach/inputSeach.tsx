@@ -70,7 +70,7 @@ export const InputSeachPage = () => {
               <DivLoading image="https://i.pinimg.com/originals/52/49/2d/52492dfd578e53265da207e2903a5ce7.gif" />
             )
           ) : (
-            <></>
+            <DivLoading/>
           )}
 
           <div></div>

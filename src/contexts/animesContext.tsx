@@ -88,7 +88,7 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
 
   useEffect(() => {
     inputResults.length == 0 &&
-      genericApiRequest({ restLink: `??latest`, dataBase: setInputResults });
+      genericApiRequest({ restLink: `??latest`, dataBase: setInputResults }).finally(() => setLoading(false));
   }, []);
 
   useEffect(() => {
