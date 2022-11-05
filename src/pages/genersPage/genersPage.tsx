@@ -44,7 +44,7 @@ export const GenersSeachPage = () => {
               <DivLoading/>
             )
           ) : (
-            <></>
+            <DivLoading/>
           )}
 
           <div></div>
