@@ -41,6 +41,7 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
   );
 
   const [loadingInfo, setLoadingInfo] = useState(true);
+  const [loadingInfoEp, setloadingInfoEp] = useState(true)
 
   const [episodeId, setEpisodeId] = useState("");
   const [servidorEpisode, setServidorEpisode] = useState("vidcdn");
@@ -61,6 +62,7 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
 
   useEffect(() => {
     setLoading(true);
+    setLoadingInfo(true);
     typeGet == "recent-episodes"
       ? genericApiRequest({
           restLink: `?latest`,
@@ -101,19 +103,19 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
 
   useEffect(() => {
     setLoadingInfo(true);
-
     animeIdInfo !== "" &&
       animeIdInfo != "undefined" &&
-      genericApiRequest({ restLink: `?info=${animeIdInfo}`, dataBase: setAnimeInfo });
-    ApiIAnime.get(`${baseUrl}`).finally(() => setLoadingInfo(false));
+      genericApiRequest({
+        restLink: `?info=${animeIdInfo}`,
+        dataBase: setAnimeInfo,
+      }).finally(() => setloadingInfoEp(false))
 
     setLoadingInfo(true);
     animeIdInfo !== "" &&
-      ApiIAnime.get(`${baseUrl}?cat_id=${animeIdInfo}`)
-        .then((res) => {
-          setListEpisode(res.data);
-        })
-        .finally(() => setLoadingInfo(false));
+      genericApiRequest({
+        restLink: `?cat_id=${animeIdInfo}`,
+        dataBase: setListEpisode,
+      }).finally(() => setLoadingInfo(false));
   }, [animeIdInfo]);
 
   useEffect(() => {
@@ -175,6 +177,7 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
         loadingEp,
         animesgeners,
         setGeners,
+        loadingInfoEp
       }}
     >
       {children}

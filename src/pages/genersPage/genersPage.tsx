@@ -8,6 +8,7 @@ import {
   DivConteinerAnimesInput,
   DivInputPageConteiner,
 } from "./styled";
+import { DivLoading } from "../../components/divLoading/divLoading";
 
 export const GenersSeachPage = () => {
   const { loading, animesgeners, setGeners } = useContext(AnimeContext);
@@ -40,7 +41,7 @@ export const GenersSeachPage = () => {
                 </DivAnimeSeach>
               </>
             ) : (
-              <div key="loading">Não tem esse anime</div>
+              <DivLoading/>
             )
           ) : (
             <></>

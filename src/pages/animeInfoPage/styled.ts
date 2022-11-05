@@ -24,14 +24,6 @@ export const InfoConteiner = styled.div`
     font-size: 4rem;
   }
 
-  .divLoading{
-    width: 100%;
-    height: 1200px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
   @media (max-width: 1200px) {
     width: 90%;
   }

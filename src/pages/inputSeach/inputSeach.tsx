@@ -9,6 +9,7 @@ import {
   DivInputPageConteiner,
 } from "./styled";
 import { InputResultsInterface } from "../../interfaces/animesContextInterface/animeContextInterface";
+import { DivLoading } from "../../components/divLoading/divLoading";
 
 export const InputSeachPage = () => {
   const { inputResults, loading, setSeachInput } = useContext(AnimeContext);
@@ -18,18 +19,20 @@ export const InputSeachPage = () => {
   );
 
   const filtredAnimes = (seach: string) => {
-
-    setAnimesFiltred([])
+    setAnimesFiltred([]);
     inputResults.map((elem) => {
-      return elem.category_name!.toLocaleLowerCase().includes(seach!.toLocaleLowerCase()) && setAnimesFiltred((oldItens) => [...oldItens, elem]);
+      return (
+        elem
+          .category_name!.toLocaleLowerCase()
+          .includes(seach!.toLocaleLowerCase()) &&
+        setAnimesFiltred((oldItens) => [...oldItens, elem])
+      );
     });
-    
   };
 
-
   useEffect(() => {
-    filtredAnimes(title!)
-    setSeachInput(title!)
+    filtredAnimes(title!);
+    setSeachInput(title!);
   }, [title]);
 
   return (
@@ -64,7 +67,7 @@ export const InputSeachPage = () => {
                 </DivAnimeSeach>
               </>
             ) : (
-              <div key="loading">Não tem esse anime</div>
+              <DivLoading image="https://i.pinimg.com/originals/52/49/2d/52492dfd578e53265da207e2903a5ce7.gif" />
             )
           ) : (
             <></>

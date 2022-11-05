@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { DivLoading } from "../../components/divLoading/divLoading";
 import { Header } from "../../components/header/header";
 import { AnimeContext } from "../../contexts/animesContext";
 import { AnimeEp } from "./components/animeEp";
@@ -34,7 +35,13 @@ export const AnimeEpisodePage = () => {
     <>
       <Header />
       <DivConteiner>
-        <EpConteiner>{!loadingEp ? <AnimeEp /> : <div>Carregando...</div>}</EpConteiner>
+        <EpConteiner>
+          {!loadingEp ? (
+            <AnimeEp />
+          ) : (
+            <DivLoading/>
+          )}
+        </EpConteiner>
       </DivConteiner>
     </>
   );
