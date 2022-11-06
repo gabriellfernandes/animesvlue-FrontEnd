@@ -67,7 +67,7 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
 
 
   useEffect(() => {
-    setLoadingInfo(true);
+    
     typeGet == "recent-episodes"
       ? genericApiRequest({
           restLink: `?latest`,
@@ -115,20 +115,19 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
       genericApiRequest({
         restLink: `?info=${animeIdInfo}`,
         dataBase: setAnimeInfo,
-      }).finally(() => setloadingInfoEp(false))
+      }).finally(() => setLoadingInfo(false))
 
-    setLoadingInfo(true);
+    setloadingInfoEp(true);
     animeIdInfo !== "" &&
       genericApiRequest({
         restLink: `?cat_id=${animeIdInfo}`,
         dataBase: setListEpisode,
-      }).finally(() => setLoadingInfo(false));
+      }).finally(() => setloadingInfoEp(false));
   }, [animeIdInfo]);
 
   useEffect(() => {
     setLoadingInfo(true);
     setLoadingEp(true);
-
     episodeId !== "" &&
       episodeId != "undefined" &&
       genericApiRequest({

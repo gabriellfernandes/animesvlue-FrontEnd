@@ -8,7 +8,7 @@ export const HeaderConteinerMobile = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10px 5%;
-  width: 100vw;
+  width: 100%;
   height: 6rem;
   
   @media (max-width: 850px) {

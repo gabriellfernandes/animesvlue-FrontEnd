@@ -10,7 +10,7 @@ export const CardAnime = ({
   animeId = "",
   episodeId = ""
 }: CardAnimeInterface) => {
-  const { setLoading, setAnimeIdInfo, setEpisodeId } = useContext(AnimeContext);
+  const { setAnimeIdInfo, setEpisodeId } = useContext(AnimeContext);
   const { id, idEp } = useParams();
   const navigate = useNavigate();
  
@@ -20,7 +20,6 @@ export const CardAnime = ({
       {(
         <CardAnimeItem
           onClick={() => {
-            setLoading(true);
             setAnimeIdInfo(animeId)
             setEpisodeId(episodeId)
             episodeId == ""

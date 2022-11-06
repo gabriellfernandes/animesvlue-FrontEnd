@@ -18,4 +18,11 @@ export const DivLoadingStyled = styled.div`
     font-size: 1.5rem;
     color: white;
   };
+
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+    align-items: center;
+
+    padding-top: 2rem;
+  }
 `;
