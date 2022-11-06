@@ -12,23 +12,24 @@ import {
 import { CardAnime } from "../../../components/CardAnime/cardAnime";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Player } from "./player";
+import { InfoOrEpisodeContext } from "../../../contexts/animes/infoContext";
 
 export const AnimeEp = () => {
   const {
     episodesResults,
     animeInfo,
     listEpisodes,
-    topAiring,
+    // topAiring,
     nextEp,
     setNetxEp,
     previosEp,
     setPreviosEp,
-  } = useContext(AnimeContext);
+  } = useContext(InfoOrEpisodeContext);
   const [server, setServer] = useState(
     `${episodesResults[0].locationsd.length != 0 ? "2" : "1"}`
   );
   const navigate = useNavigate();
-  const { id } = useParams();
+
   return (
     <>
       <DivConteinerPlayer>
@@ -42,34 +43,51 @@ export const AnimeEp = () => {
             }`}
           ></Player>
         </div>
-        <button
-          onClick={() => {
-            if (episodesResults[0].location.length != 0) {
+        {episodesResults[0].location.length != 0 ? (
+          <button
+            onClick={() => {
               setServer("1");
-              toast.success("SD");
-            } else {
-              toast.error("servidor indisponivel");
-            }
-          }}
-        >
-          SD
-        </button>
-        <button
-          onClick={() => {
-            if (episodesResults[0].locationsd.length != 0) {
+              toast.success("SD", { autoClose: 2500, pauseOnHover: false });
+            }}
+          >
+            SD
+          </button>
+        ) : (
+          <button
+            disabled={true}
+            style={{ cursor: "initial", backgroundColor: "gray" }}
+          >
+            SD
+          </button>
+        )}
+        {episodesResults[0].locationsd.length != 0 ? (
+          <button
+            onClick={() => {
               setServer("2");
-              toast.success("HD");
-            } else {
-              toast.error("servidor indisponivel");
-            }
-          }}
-        >
-          HD
-        </button>
+              toast.success("HD", { autoClose: 2500, pauseOnHover: false });
+            }}
+          >
+            HD
+          </button>
+        ) : (
+          <button
+            disabled={true}
+            style={{ cursor: "initial", backgroundColor: "gray" }}
+          >
+            HD
+          </button>
+        )}
+
         {nextEp != null ? (
           <button
             onClick={() => {
-              navigate(`/anime/episode/${nextEp[0].video_id}/${animeInfo[0].id}`);
+              toast.success("Proximo episodio", {
+                autoClose: 2500,
+                pauseOnHover: false,
+              });
+              navigate(
+                `/anime/episode/${nextEp[0].video_id}/${animeInfo[0].id}`
+              );
               setNetxEp([]);
             }}
           >
@@ -86,6 +104,10 @@ export const AnimeEp = () => {
         {previosEp != null ? (
           <button
             onClick={() => {
+              toast.success("Episodio anterior", {
+                autoClose: 2500,
+                pauseOnHover: false,
+              });
               navigate(
                 `/anime/episode/${previosEp[0].video_id}/${animeInfo[0].id}`
               );
@@ -135,7 +157,7 @@ export const AnimeEp = () => {
       </DivConteinerPlayer>
       <DivAlingTopAnime>
         <h2>Top Animes</h2>
-        <div>
+        {/* <div>
           {topAiring.map((elem) => {
             return (
               id != elem.category_id &&
@@ -151,7 +173,7 @@ export const AnimeEp = () => {
               )
             );
           })}
-        </div>
+        </div> */}
       </DivAlingTopAnime>
     </>
   );

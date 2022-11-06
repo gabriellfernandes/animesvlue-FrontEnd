@@ -1,12 +1,9 @@
-import {
-  AnimesResultsApi, EpisodesResultsInterface
-} from "../animesContextInterface/animeContextInterface";
+import { AnimesHomeResultsInterface } from "../animes/homeContextInterface";
+import { EpisodesResultsInterface } from "../animes/infoContextInterface";
 
 export interface AnimesCarouselInterface {
   title: string;
-  list: AnimesResultsApi[]
-
-  
+  list: AnimesHomeResultsInterface[];
 }
 
 export interface AnimeEpisodesListInterface {

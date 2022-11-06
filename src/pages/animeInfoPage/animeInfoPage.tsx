@@ -5,10 +5,14 @@ import { Header } from "../../components/header/header";
 import { AnimeContext } from "../../contexts/animesContext";
 import { InfoConteiner, DivConteiner } from "./styled";
 import { DivLoading } from "../../components/divLoading/divLoading";
+import { InfoOrEpisodeContext } from "../../contexts/animes/infoContext";
+import { GlobalContext } from "../../contexts/globalContext";
 
 export const AnimeInfoPage = () => {
-  const { setAnimeIdInfo, loadingInfo,loadingInfoEp, setLoading, setLoadingInfo } =
-    useContext(AnimeContext);
+  const {loadingInfo,loadingInfoEp, setLoadingInfo } =
+    useContext(InfoOrEpisodeContext);
+  const { setAnimeIdInfo } = useContext(GlobalContext)
+  
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -17,7 +21,6 @@ export const AnimeInfoPage = () => {
 
     id != "" && setAnimeIdInfo(id!);
     if (id == "undefined") {
-      setLoading(true);
       setLoadingInfo(true);
       navigate("/");
     }

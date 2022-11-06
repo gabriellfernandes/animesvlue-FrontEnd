@@ -6,9 +6,10 @@ import { AnimesListGeneric } from "./components/animes/animesLIstGeneric";
 import { useContext, useEffect, useState } from "react";
 import { DivLoading } from "../../components/divLoading/divLoading";
 import { DivConteinerAnimes } from "./components/animes/styled";
+import { HomeContext } from "../../contexts/animes/homeContext";
 
 export const HomePage = () => {
-  const { loading } = useContext(AnimeContext);
+  const { loading } = useContext(HomeContext);
  
   const [visible, setVisible] = useState("none");
 

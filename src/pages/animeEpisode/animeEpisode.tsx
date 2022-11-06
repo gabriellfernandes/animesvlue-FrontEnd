@@ -2,18 +2,15 @@ import { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { DivLoading } from "../../components/divLoading/divLoading";
 import { Header } from "../../components/header/header";
-import { AnimeContext } from "../../contexts/animesContext";
+import { InfoOrEpisodeContext } from "../../contexts/animes/infoContext";
+import { GlobalContext } from "../../contexts/globalContext";
 import { AnimeEp } from "./components/animeEp";
 import { DivConteiner, EpConteiner } from "./styled";
 
 export const AnimeEpisodePage = () => {
-  const {
-    setEpisodeId,
-    loadingEp,
-    setLoading,
-    setLoadingInfo,
-    setAnimeIdInfo,
-  } = useContext(AnimeContext);
+  const { loadingEp, setLoadingInfo } =
+    useContext(InfoOrEpisodeContext);
+  const { setAnimeIdInfo, setEpisodeId } = useContext(GlobalContext);
 
   const { idEp, id } = useParams();
   const navigate = useNavigate();
@@ -25,7 +22,6 @@ export const AnimeEpisodePage = () => {
     }
 
     if (idEp == "undefined") {
-      setLoading(true);
       setLoadingInfo(true);
       navigate("/");
     }
@@ -39,7 +35,7 @@ export const AnimeEpisodePage = () => {
           {!loadingEp ? (
             <AnimeEp />
           ) : (
-            <DivLoading/>
+            <DivLoading />
           )}
         </EpConteiner>
       </DivConteiner>

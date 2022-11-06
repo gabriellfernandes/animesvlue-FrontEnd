@@ -3,6 +3,7 @@ import { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AnimeEpisodesList } from "../../../../components/animesEp/animeEpisodes";
 import { CardAnime } from "../../../../components/CardAnime/cardAnime";
+import { InfoOrEpisodeContext } from "../../../../contexts/animes/infoContext";
 import { AnimeContext } from "../../../../contexts/animesContext";
 import {
   DivAlingTopAnime,
@@ -13,7 +14,7 @@ import {
 } from "../../styled";
 
 export const InfoAnime = () => {
-  const { animeInfo, topAiring, listEpisodes } = useContext(AnimeContext);
+  const { animeInfo,  listEpisodes } = useContext(InfoOrEpisodeContext);
   const {id} = useParams()
 
   return (
@@ -59,7 +60,7 @@ export const InfoAnime = () => {
       </DivConteinerInfoTopAling>
       <DivAlingTopAnime>
         <h2>Top Animes</h2>
-        <div>
+        {/* <div>
           {topAiring.map((elem) => {
             return (
               id != elem.category_id && id != elem.id &&
@@ -73,7 +74,7 @@ export const InfoAnime = () => {
               ></CardAnime>
             );
           })}
-        </div>
+        </div> */}
       </DivAlingTopAnime>
     </>
   );

@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { HomeContext } from "../../../../contexts/animes/homeContext";
 import { AnimeContext } from "../../../../contexts/animesContext";
 import { AnimesListGenericInterface } from "../../../../interfaces/animesListGeneric/animesListGenericInteface";
 import { AnimesCarousel } from "./animesCarousel";
@@ -7,7 +8,7 @@ import { DivConteinerAnimes } from "./styled";
 
 export const AnimesListGeneric = ({ type }: AnimesListGenericInterface) => {
   const { recentEpisodes, topAiring, dubs, loading } =
-    useContext(AnimeContext);
+    useContext(HomeContext);
     
   return (
     <>
