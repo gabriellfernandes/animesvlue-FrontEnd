@@ -6,20 +6,31 @@ import { FaUser } from "react-icons/fa";
 import logo from "../../assets/logo3.png";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { match } from "assert";
 
 export const Header = () => {
   const [seachInputHeader, setSeachInputHeader] = useState("");
   const navigate = useNavigate();
+
   return (
     <>
       <HeaderMobile key="headerMobile" />
       <HeaderConteiner>
-        <img src={logo} alt="Logo" className="logo" onClick={() => navigate("/")}/>
+        <img
+          src={logo}
+          alt="Logo"
+          className="logo"
+          onClick={() => {
+            navigate("/");
+          }}
+        />
         <nav>
           <UlHeader>
             <li>
-              <Link to={`/anime/info/${Math.floor(Math.random() * 200 - 1) + 1}`}>Anime</Link>
+              <Link
+                to={`/anime/info/${Math.floor(Math.random() * 200 - 1) + 1}`}
+              >
+                Anime
+              </Link>
             </li>
             <li>
               <DropDownGeners />
@@ -28,7 +39,13 @@ export const Header = () => {
               <a href="#">Discord</a>
             </li>
             <li>
-              <Link to={`/anime/info/${Math.floor(Math.random() * 400 - 200) + 200}`}>Explore</Link>
+              <Link
+                to={`/anime/info/${
+                  Math.floor(Math.random() * 400 - 200) + 200
+                }`}
+              >
+                Explore
+              </Link>
             </li>
             <li>
               <a href="#">Historic</a>

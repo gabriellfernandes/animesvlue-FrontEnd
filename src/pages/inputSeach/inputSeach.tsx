@@ -12,7 +12,7 @@ import { InputResultsInterface } from "../../interfaces/animesContextInterface/a
 import { DivLoading } from "../../components/divLoading/divLoading";
 
 export const InputSeachPage = () => {
-  const { inputResults, loading, setSeachInput } = useContext(AnimeContext);
+  const { inputResults, loadingInput, setSeachInput } = useContext(AnimeContext);
   const { title } = useParams();
   const [animesFiltred, setAnimesFiltred] = useState<InputResultsInterface[]>(
     [] as InputResultsInterface[]
@@ -40,7 +40,7 @@ export const InputSeachPage = () => {
       <Header key="header" />
       <DivInputPageConteiner key="DivInputPageConteiner">
         <DivConteinerAnimesInput key="DivConteinerAnimesInput">
-          {!loading ? (
+          {!loadingInput ? (
             animesFiltred.length != 0 ? (
               <>
                 <h2 style={{ marginTop: "40px" }}>Seach Results</h2>

@@ -11,7 +11,7 @@ import {
 import { DivLoading } from "../../components/divLoading/divLoading";
 
 export const GenersSeachPage = () => {
-  const { loading, animesgeners, setGeners } = useContext(AnimeContext);
+  const { loadingGener, animesgeners, setGeners } = useContext(AnimeContext);
   const { gener } = useParams();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export const GenersSeachPage = () => {
       <Header key="header" />
       <DivInputPageConteiner key="DivInputPageConteiner">
         <DivConteinerAnimesInput key="DivConteinerAnimesInput">
-          {!loading ? (
+          {!loadingGener ? (
             animesgeners.length != 0 ? (
               <>
                 <h2 style={{ marginTop: "40px", textTransform: "capitalize" }}>{gener == "acao" ? "Ação" : gener!.replace(/_/gi, " ")}</h2>

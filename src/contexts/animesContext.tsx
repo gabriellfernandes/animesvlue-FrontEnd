@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { genericApiRequest, baseUrl } from "../config/funtions";
+import { genericApiRequest } from "../config/funtions";
 import {
   AnimeContextInterface,
   AnimeEpisodeResultsInterface,
@@ -10,7 +10,7 @@ import {
   GernesAnimeInterface,
   InputResultsInterface,
 } from "../interfaces/animesContextInterface/animeContextInterface";
-import ApiIAnime from "../services/apiAnimes";
+
 
 export const AnimeContext = createContext<AnimeContextInterface>(
   {} as AnimeContextInterface
@@ -32,6 +32,9 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
   );
   const [loading, setLoading] = useState(true);
   const [seachInput, setSeachInput] = useState("");
+  const [loadingInput, setLoadingInput] = useState(true);
+
+
   const [animeIdInfo, setAnimeIdInfo] = useState("");
   const [animeInfo, setAnimeInfo] = useState<AnimeInfoResultsInteface[]>(
     [] as AnimeInfoResultsInteface[]
@@ -39,7 +42,6 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
   const [listEpisodes, setListEpisode] = useState<EpisodesResultsInterface[]>(
     [] as EpisodesResultsInterface[]
   );
-
   const [loadingInfo, setLoadingInfo] = useState(true);
   const [loadingInfoEp, setloadingInfoEp] = useState(true)
 
@@ -49,10 +51,13 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
     AnimeEpisodeResultsInterface[]
   >([] as AnimeEpisodeResultsInterface[]);
   const [loadingEp, setLoadingEp] = useState(true);
+
   const [geners, setGeners] = useState("");
   const [animesgeners, getAnimesGerers] = useState<GernesAnimeInterface[]>(
     [] as GernesAnimeInterface[]
   );
+  const [loadingGener, setLoadingGener] = useState(true)
+
   const [nextEp, setNetxEp] = useState<AnimeEpisodeResultsInterface[]>(
     [] as AnimeEpisodeResultsInterface[]
   );
@@ -60,8 +65,8 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
     [] as AnimeEpisodeResultsInterface[]
   );
 
+
   useEffect(() => {
-    setLoading(true);
     setLoadingInfo(true);
     typeGet == "recent-episodes"
       ? genericApiRequest({
@@ -84,20 +89,22 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
         }).finally(() => {
           return setLoading(false);
         });
+
+        
   }, [typeGet]);
 
   useEffect(() => {
     inputResults.length == 0 &&
-      genericApiRequest({ restLink: `??latest`, dataBase: setInputResults }).finally(() => setLoading(false));
+      genericApiRequest({ restLink: `??latest`, dataBase: setInputResults }).finally(() => setLoadingInput(false));
   }, []);
 
   useEffect(() => {
     if (geners !== "") {
-      setLoading(true);
+      setLoadingGener(true)
       genericApiRequest({
         restLink: `?categoria=${geners}`,
         dataBase: getAnimesGerers,
-      }).finally(() => setLoading(false));
+      }).finally(() => setLoadingGener(false));
     }
   }, [geners]);
 
@@ -177,7 +184,9 @@ export const ContextAnimes = ({ children }: ContextAnimeInterface) => {
         loadingEp,
         animesgeners,
         setGeners,
-        loadingInfoEp
+        loadingInfoEp,
+        loadingGener,
+        loadingInput,
       }}
     >
       {children}

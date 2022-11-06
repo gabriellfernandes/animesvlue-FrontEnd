@@ -93,4 +93,6 @@ export interface AnimeContextInterface {
   animesgeners: GernesAnimeInterface[];
   setGeners: React.Dispatch<React.SetStateAction<string>>;
   loadingInfoEp: boolean;
+  loadingGener: boolean;
+  loadingInput: boolean;
 }
