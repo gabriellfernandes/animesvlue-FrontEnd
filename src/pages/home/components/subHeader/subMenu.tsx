@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { SubHeaderUl } from "../../styled";
 
 export const SubHeader = () => {
@@ -30,10 +31,11 @@ export const SubHeader = () => {
     "Y",
     "Z",
   ];
+  const navigate = useNavigate()
   return (
     <SubHeaderUl>
       {ABC.map((elem) => {
-        return <li>{elem}</li>;
+        return <li onClick={() => navigate(`/seach/${elem}`)}>{elem}</li>;
       })}
     </SubHeaderUl>
   );

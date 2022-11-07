@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export interface InfoContextComponentsInterface {
+export interface InfoAndEpisodeContextComponentsInterface {
   children: ReactNode;
 }
 
@@ -29,7 +29,7 @@ export interface AnimeEpisodeResultsInterface {
   title: string;
 }
 
-export interface InfoContextInterface {
+export interface InfoAndEpisodeContextInterface {
   animeInfo: AnimeInfoResultsInteface[];
   loadingInfo: boolean;
   loadingInfoEp: boolean;

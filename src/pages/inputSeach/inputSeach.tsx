@@ -1,38 +1,13 @@
 import { Header } from "../../components/header/header";
-import { AnimeContext } from "../../contexts/animesContext";
-import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useContext} from "react";
 import { DivConteinerAnimesInput, DivInputPageConteiner } from "./styled";
-import { InputResultsInterface } from "../../interfaces/animesContextInterface/animeContextInterface";
 import { GenericSeach } from "../../components/genericSeach/genericSeachPage";
+import { SeachContext } from "../../contexts/animes/SeachContext";
+
 
 export const InputSeachPage = () => {
-  const { inputResults, loadingInput, setSeachInput } =
-    useContext(AnimeContext);
-  const { title } = useParams();
-  const [animesFiltred, setAnimesFiltred] = useState<InputResultsInterface[]>(
-    [] as InputResultsInterface[]
-  );
-  const [loadingGeneric, setLoadingGeneric] = useState(true);
-  const filtredAnimes = (seach: string) => {
-    setAnimesFiltred([]);
-    inputResults.map((elem) => {
-      return (
-        seach.toLocaleLowerCase() != "arcane" &&
-        elem
-          .category_name!.toLocaleLowerCase()
-          .includes(seach!.toLocaleLowerCase()) &&
-        setAnimesFiltred((oldItens) => [...oldItens, elem])
-      );
-    });
-    return setLoadingGeneric(false);
-  };
-
-  useEffect(() => {
-    console.log(inputResults);
-    filtredAnimes(title!);
-    setSeachInput(title!);
-  }, [title]);
+  const { loadingFiltred, animesFiltred } =
+    useContext(SeachContext);
 
   return (
     <>
@@ -44,7 +19,7 @@ export const InputSeachPage = () => {
               key="genericPage"
               list={animesFiltred}
               title="Seach Results"
-              loading={loadingGeneric}
+              loading={loadingFiltred}
             />
           }
         </DivConteinerAnimesInput>

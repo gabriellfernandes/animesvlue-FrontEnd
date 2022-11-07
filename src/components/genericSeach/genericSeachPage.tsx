@@ -2,6 +2,7 @@ import { GenericSeachInterface } from "../../interfaces/genericSeachInterface/ge
 import { CardAnime } from "../CardAnime/cardAnime";
 import { DivLoading } from "../divLoading/divLoading";
 import { DivSeachGeneric } from "./styled";
+import notFindSeach from "../../assets/notFindSeach.gif"
 
 export const GenericSeach = ({
   list,
@@ -33,7 +34,7 @@ export const GenericSeach = ({
             </DivSeachGeneric>
           </>
         ) : (
-          <DivLoading image="https://i.pinimg.com/originals/52/49/2d/52492dfd578e53265da207e2903a5ce7.gif" />
+          <DivLoading image={notFindSeach} />
         )
       ) : (
         <DivLoading />

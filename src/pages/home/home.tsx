@@ -1,7 +1,6 @@
 import { Header } from "../../components/header/header";
 import { SubHeader } from "./components/subHeader/subMenu";
 import { DivHomeConteiner } from "./styled";
-import { AnimeContext, ContextAnimes } from "../../contexts/animesContext";
 import { AnimesListGeneric } from "./components/animes/animesLIstGeneric";
 import { useContext, useEffect, useState } from "react";
 import { DivLoading } from "../../components/divLoading/divLoading";
@@ -19,7 +18,7 @@ export const HomePage = () => {
 
   return (
     <>
-      <ContextAnimes key="ContextAnimes">
+      <div key="ContextAnimes">
         <Header key="header" />
         {loading ? (
           <DivHomeConteiner>
@@ -41,7 +40,7 @@ export const HomePage = () => {
             <AnimesListGeneric type="dub" />
           </DivHomeConteiner>
         )}
-      </ContextAnimes>
+      </div>
     </>
   );
 };

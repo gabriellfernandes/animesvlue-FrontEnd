@@ -2,17 +2,17 @@ import { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { InfoAnime } from "./components/animesInfo/infoAnime";
 import { Header } from "../../components/header/header";
-import { AnimeContext } from "../../contexts/animesContext";
 import { InfoConteiner, DivConteiner } from "./styled";
 import { DivLoading } from "../../components/divLoading/divLoading";
-import { InfoOrEpisodeContext } from "../../contexts/animes/infoContext";
+import { InfoAndEpisodeContext } from "../../contexts/animes/infoAndEpisodeContext";
 import { GlobalContext } from "../../contexts/globalContext";
 
 export const AnimeInfoPage = () => {
-  const {loadingInfo,loadingInfoEp, setLoadingInfo } =
-    useContext(InfoOrEpisodeContext);
-  const { setAnimeIdInfo } = useContext(GlobalContext)
-  
+  const { loadingInfo, loadingInfoEp, setLoadingInfo } = useContext(
+    InfoAndEpisodeContext
+  );
+  const { setAnimeIdInfo } = useContext(GlobalContext);
+
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -36,7 +36,7 @@ export const AnimeInfoPage = () => {
               <InfoAnime key="animesInfo" />
             </>
           ) : (
-            <DivLoading/>
+            <DivLoading />
           )}
         </InfoConteiner>
       </DivConteiner>

@@ -1,14 +1,15 @@
 import { useContext } from "react";
 import { HomeContext } from "../../../../contexts/animes/homeContext";
-import { AnimeContext } from "../../../../contexts/animesContext";
+import { GlobalContext } from "../../../../contexts/globalContext";
 import { AnimesListGenericInterface } from "../../../../interfaces/animesListGeneric/animesListGenericInteface";
 import { AnimesCarousel } from "./animesCarousel";
 import { DivConteinerAnimes } from "./styled";
 
 
 export const AnimesListGeneric = ({ type }: AnimesListGenericInterface) => {
-  const { recentEpisodes, topAiring, dubs, loading } =
+  const { recentEpisodes, dubs, loading } =
     useContext(HomeContext);
+    const {topAiring} = useContext(GlobalContext)
     
   return (
     <>

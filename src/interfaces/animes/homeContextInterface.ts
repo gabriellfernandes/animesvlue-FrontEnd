@@ -16,7 +16,6 @@ export interface AnimesHomeResultsInterface{
 
 
   export interface HomeContexInteface {
-    topAiring: AnimesHomeResultsInterface[];
     recentEpisodes: AnimesHomeResultsInterface[];
     dubs: AnimesHomeResultsInterface[];
     loading: boolean;

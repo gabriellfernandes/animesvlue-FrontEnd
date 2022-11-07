@@ -4,19 +4,19 @@ import {
   AnimeEpisodeResultsInterface,
   AnimeInfoResultsInteface,
   EpisodesResultsInterface,
-  InfoContextComponentsInterface,
-  InfoContextInterface,
+  InfoAndEpisodeContextComponentsInterface,
+  InfoAndEpisodeContextInterface,
 } from "../../interfaces/animes/infoContextInterface";
 import { GlobalContext } from "../globalContext";
 
-export const InfoOrEpisodeContext = createContext<InfoContextInterface>(
-  {} as InfoContextInterface
+export const InfoAndEpisodeContext = createContext<InfoAndEpisodeContextInterface>(
+  {} as InfoAndEpisodeContextInterface
 );
 
-export const InfoOrEpisodeContextComponent = ({
+export const InfoAndEpisodeContextComponent = ({
   children,
-}: InfoContextComponentsInterface) => {
-    const {episodeId,animeIdInfo} = useContext(GlobalContext)
+}: InfoAndEpisodeContextComponentsInterface) => {
+  const { episodeId, animeIdInfo } = useContext(GlobalContext);
 
   const [animeInfo, setAnimeInfo] = useState<AnimeInfoResultsInteface[]>(
     [] as AnimeInfoResultsInteface[]
@@ -41,7 +41,7 @@ export const InfoOrEpisodeContextComponent = ({
   useEffect(() => {
     setLoadingInfo(true);
     setloadingInfoEp(true);
-   
+
     animeIdInfo !== "" &&
       animeIdInfo != "undefined" &&
       genericApiRequest({
@@ -65,12 +65,15 @@ export const InfoOrEpisodeContextComponent = ({
       genericApiRequest({
         restLink: `?episodios=${episodeId}`,
         dataBase: setEpisodesResults,
-      }).finally(() => setloadingInfoEp(false))
+      }).finally(() => setloadingInfoEp(false));
   }, [episodeId, servidorEpisode]);
 
   useEffect(() => {
-    !loadingInfo && !loadingInfoEp && episodesResults.length != 0 && setLoadingEp(false)
-  }, [loadingInfo, loadingInfoEp, episodeId, episodesResults])
+    !loadingInfo &&
+      !loadingInfoEp &&
+      episodesResults.length != 0 &&
+      setLoadingEp(false);
+  }, [loadingInfo, loadingInfoEp, episodeId, episodesResults]);
 
   useEffect(() => {
     episodeId !== "" &&
@@ -91,7 +94,7 @@ export const InfoOrEpisodeContextComponent = ({
   }, [previosEp, episodeId]);
 
   return (
-    <InfoOrEpisodeContext.Provider
+    <InfoAndEpisodeContext.Provider
       value={{
         animeInfo,
         episodesResults,
@@ -108,6 +111,6 @@ export const InfoOrEpisodeContextComponent = ({
       }}
     >
       {children}
-    </InfoOrEpisodeContext.Provider>
+    </InfoAndEpisodeContext.Provider>
   );
 };

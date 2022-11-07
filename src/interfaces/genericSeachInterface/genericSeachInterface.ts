@@ -1,8 +1,8 @@
 import { GernesAnimeInterface } from "../animes/generContext"
-import { InputResultsInterface } from "../animesContextInterface/animeContextInterface"
+import { SeachResultsInterface } from "../../interfaces/animes/seachContextInterface";
 
 export interface GenericSeachInterface {
     title: string
     loading : boolean
-    list: GernesAnimeInterface[] | InputResultsInterface[]
+    list: GernesAnimeInterface[] | SeachResultsInterface[]
 }
