@@ -24,8 +24,8 @@ export const HeaderConteiner = styled.div`
 
   .logo {
     width: 20%;
-    height: 60px;
-    margin-right: 40px;
+    height: 80px;
+    object-fit: cover;
   }
 `;
 
