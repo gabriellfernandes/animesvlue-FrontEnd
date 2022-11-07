@@ -15,12 +15,12 @@ export const InfoConteiner = styled.div`
   border: 1px solid black;
 
   h2 {
-    color: whitesmoke;
+    color: var(--textColor);
     font-size: 1.7rem;
   }
 
   span {
-    color: whitesmoke;
+    color: var(--textColor);
     font-size: 4rem;
   }
 

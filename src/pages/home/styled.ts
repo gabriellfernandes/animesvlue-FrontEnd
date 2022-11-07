@@ -38,7 +38,7 @@ export const SubHeaderUl = styled.ul`
     align-items: center;
     justify-content: center;
     background-color: var(--backGroundColor);
-    color: whitesmoke;
+    color: var(--textColor);
     font-size: 1.5rem;
     
     &:hover {

@@ -22,7 +22,7 @@ export const DivConteinerAnimesInput = styled.div`
   padding-bottom: 80px;
 
   h2 {
-    color: whitesmoke;
+    color: var(--textColor);
     font-size: 1.7rem;
   }
 

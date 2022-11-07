@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import { GernesAnimeInterface } from "../animes/generContext";
 import { AnimesHomeResultsInterface } from "../animes/homeContextInterface";
 import {
@@ -7,12 +6,6 @@ import {
   EpisodesResultsInterface,
 } from "../animes/infoContextInterface";
 import { SeachResultsInterface } from "../animes/seachContextInterface";
-
-export interface ContextAnimeInterface {
-  children: ReactNode;
-}
-
-
 export interface ApiRequestInterface {
   restLink: string;
   dataBase:

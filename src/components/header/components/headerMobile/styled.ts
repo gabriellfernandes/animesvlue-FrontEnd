@@ -75,13 +75,13 @@ export const OpeMenu = styled.div`
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: #000000b3;
+    background-color: var(--backGroundColor);
     transition: all 0.5s;
 
     li {
       width: 99%;
       text-align: center;
-      border: 0.5px solid black;
+      border: 0.5px solid var(--shadowBox);
       height: calc(100% / 5);
       display: flex;
       align-items: center;

@@ -17,7 +17,7 @@ export const DivSeachGeneric = styled.div`
   }
 
   p {
-    color: whitesmoke;
+    color: var(--textColor);
     width: 240px;
     text-overflow: ellipsis;
     overflow: hidden;

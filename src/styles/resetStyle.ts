@@ -31,7 +31,7 @@ export const GlobalStyles = createGlobalStyle`
         background: var(--color-grey-1);
         color: var(--color-grey-5);
         height: 100vh;
-        background-color: #0062AB;
+        background-color: rgba(80, 80, 80);
     }
     ::-webkit-scrollbar {
         width: 10px;
@@ -74,10 +74,12 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     :root {  
-        --backGroundColor: #000000b2;
-        --hoverColor: rgb(0, 181, 237);
+        --backGroundColor: black;
+        --hoverColor: red;
         --colorSpan: #C4C9CD;
         --colorTitle: rgba(255, 255, 255, 0.6);
         --colorDropDown: whitesmoke;
+        --textColor: white;
+        --shadowBox:  whitesmoke;
     }
 `;

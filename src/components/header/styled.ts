@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const HeaderConteiner = styled.div`
   background-color: var(--backGroundColor);
-  box-shadow: 0 1px 5px rgb(0 0 0 / 40%);
   color: var(--colorDropDown);
   display: flex;
   justify-content: space-around;
@@ -76,7 +75,7 @@ export const InputHeader = styled.form`
   }
 
   .conteiner-input{
-    border: 0.5px solid rgba(255, 255, 255, 0.6);
+    border: 0.5px solid  var(--shadowBox);
     border-radius: 8px;
     display: flex;
     align-items: center;

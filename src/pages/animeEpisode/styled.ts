@@ -12,15 +12,15 @@ export const EpConteiner = styled.div`
   display: flex;
   width: 85%;
   background-color: var(--backGroundColor);
-  border: 1px solid black;
+  border-bottom: 1px solid var(--shadowBox);
 
   h2 {
-    color: whitesmoke;
+    color: var(--textColor);
     font-size: 1.7rem;
   }
 
   span {
-    color: whitesmoke;
+    color: var(--textColor);
     font-size: 4rem;
   }
 
@@ -44,11 +44,11 @@ export const DivConteinerPlayer = styled.div`
   button{
     height: 40px;
     font-size: 1.5rem;
-    background-color:#171515; 
-    color: #fff;
+    background-color:#171510; 
+    color: var(--textColor);
 
     &:hover{
-      background-color: #0062AB;
+      background-color: var(--hoverColor);
     }
   }
 
@@ -60,8 +60,7 @@ export const DivConteinerPlayer = styled.div`
   .player {
     padding: 1rem;
     text-align: center;
-    border-bottom: 1px solid gray;
-    border-right: 1px solid gray;
+    border-bottom: 1px solid var(--shadowBox);
 
     .player-wrapper {
       position: relative;
@@ -81,8 +80,8 @@ export const DivInfo = styled.div`
   align-items: center;
   width: 100%;
   justify-content: space-between;
-  border-bottom: 1px solid gray;
-  border-right: 1px solid gray;
+  border-bottom: 1px solid var(--shadowBox);
+
   padding: 2rem;
   padding-top: 3rem;
 
@@ -248,8 +247,7 @@ export const DivInfo = styled.div`
 
 export const DivSynope = styled.div`
   padding: 2rem;
-  border-bottom: 1px solid gray;
-  border-right: 1px solid gray;
+  border-bottom: 1px solid var(--shadowBox);
 
   h2 {
     font-size: 1.6rem;
@@ -331,8 +329,7 @@ export const DivAlingTopAnime = styled.div`
 export const DivEpisodio = styled.div`
   padding-top: 40px;
   width: 100%;
-  border-bottom: 1px solid gray;
-  border-right: 1px solid gray;
+  border-bottom: 1px solid var(--shadowBox);
   text-align: center;
 
   img {
