@@ -41,7 +41,7 @@ export const DropDownGeners = () => {
   return (
     <Menu trigger="hover" openDelay={100} closeDelay={400}>
       <Menu.Target>
-        <a style={{ cursor: "pointer" }}>Geners</a>
+        <a style={{ cursor: "pointer" }}>Gênero</a>
       </Menu.Target>
       {
         <Menu.Dropdown

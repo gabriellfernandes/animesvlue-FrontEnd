@@ -1,5 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { genericApiRequest } from "../../config/funtions";
+import {
+  EpisodeNameValidate,
+  EpisodeNameValidateOva,
+} from "../../config/episodesFunctions";
+import { genericApiRequest } from "../../config/genericApiResquest";
 import {
   AnimeEpisodeResultsInterface,
   AnimeInfoResultsInteface,
@@ -9,9 +13,10 @@ import {
 } from "../../interfaces/animes/infoContextInterface";
 import { GlobalContext } from "../globalContext";
 
-export const InfoAndEpisodeContext = createContext<InfoAndEpisodeContextInterface>(
-  {} as InfoAndEpisodeContextInterface
-);
+export const InfoAndEpisodeContext =
+  createContext<InfoAndEpisodeContextInterface>(
+    {} as InfoAndEpisodeContextInterface
+  );
 
 export const InfoAndEpisodeContextComponent = ({
   children,
@@ -38,6 +43,7 @@ export const InfoAndEpisodeContextComponent = ({
     [] as AnimeEpisodeResultsInterface[]
   );
 
+
   useEffect(() => {
     setLoadingInfo(true);
     setloadingInfoEp(true);
@@ -54,7 +60,9 @@ export const InfoAndEpisodeContextComponent = ({
       genericApiRequest({
         restLink: `?cat_id=${animeIdInfo}`,
         dataBase: setListEpisode,
-      }).finally(() => setloadingInfoEp(false));
+      }).finally(() => {
+        setloadingInfoEp(false);
+      });
   }, [animeIdInfo]);
 
   useEffect(() => {

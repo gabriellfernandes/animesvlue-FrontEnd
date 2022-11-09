@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { genericApiRequest } from "../../config/funtions";
+import { genericApiRequest } from "../../config/genericApiResquest";
 import {
   SeachContextComponentInterface,
   SeachContextInterface,

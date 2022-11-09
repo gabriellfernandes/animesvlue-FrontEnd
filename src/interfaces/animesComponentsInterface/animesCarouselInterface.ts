@@ -8,6 +8,5 @@ export interface AnimesCarouselInterface {
 
 export interface AnimeEpisodesListInterface {
   eplist: EpisodesResultsInterface[];
-  animeImg: string;
   animeTitle: string;
 }

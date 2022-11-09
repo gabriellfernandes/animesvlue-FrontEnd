@@ -152,7 +152,6 @@ export const AnimeEp = () => {
 
         <DivEpisodio>
           <AnimeEpisodesList
-            animeImg={animeInfo[0].category_image}
             animeTitle={animeInfo[0].category_name}
             eplist={listEpisodes}
           />

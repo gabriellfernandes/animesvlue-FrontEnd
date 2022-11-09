@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { genericApiRequest } from "../../config/funtions";
+import { genericApiRequest } from "../../config/genericApiResquest";
 import {
   AnimesHomeResultsInterface,
   HomeContexInteface,
@@ -18,13 +18,13 @@ export const HomeContextComponent = ({
   const [recentEpisodes, setRecentEpisodes] = useState<
     AnimesHomeResultsInterface[]
   >([] as AnimesHomeResultsInterface[]);
- 
+
   const [dubs, setDubs] = useState<AnimesHomeResultsInterface[]>(
     [] as AnimesHomeResultsInterface[]
   );
   const [loading, setLoading] = useState(true);
 
-  const {topAiring} = useContext(GlobalContext)
+  const { topAiring } = useContext(GlobalContext);
 
   useEffect(() => {
     genericApiRequest({
@@ -46,9 +46,7 @@ export const HomeContextComponent = ({
   }, [topAiring, dubs, recentEpisodes]);
 
   return (
-    <HomeContext.Provider
-      value={{ dubs, recentEpisodes, loading, setLoading }}
-    >
+    <HomeContext.Provider value={{ dubs, recentEpisodes, loading, setLoading }}>
       {children}
     </HomeContext.Provider>
   );

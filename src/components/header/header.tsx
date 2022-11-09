@@ -27,9 +27,9 @@ export const Header = () => {
           <UlHeader>
             <li>
               <Link
-                to={`/anime/info/${Math.floor(Math.random() * 200 - 1) + 1}`}
+                to={`/`}
               >
-                Anime
+                Home
               </Link>
             </li>
             <li>
@@ -41,14 +41,14 @@ export const Header = () => {
             <li>
               <Link
                 to={`/anime/info/${
-                  Math.floor(Math.random() * 400 - 200) + 200
+                  Math.floor(Math.random() * 200) + 400
                 }`}
               >
-                Explore
+                Explorar
               </Link>
             </li>
             <li>
-              <a href="#">Historic</a>
+              <a href="#">Historico</a>
             </li>
           </UlHeader>
         </nav>

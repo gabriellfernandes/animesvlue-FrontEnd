@@ -11,8 +11,6 @@ export const DivConteiner = styled.div`
 export const EpConteiner = styled.div`
   display: flex;
   width: 85%;
-  background-color: var(--backGroundColor);
-  border-bottom: 1px solid var(--shadowBox);
 
   h2 {
     color: var(--textColor);
@@ -331,6 +329,7 @@ export const DivEpisodio = styled.div`
   width: 100%;
   border-bottom: 1px solid var(--shadowBox);
   text-align: center;
+ 
 
   img {
     width: 280px;
@@ -342,6 +341,7 @@ export const DivEpisodio = styled.div`
 
   .animeEpConteiner {
     display: flex;
+    flex-direction: column;
     align-items: center;
     width: 100%;
     margin-left: 5%;

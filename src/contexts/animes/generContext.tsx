@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { genericApiRequest } from "../../config/funtions";
+import { genericApiRequest } from "../../config/genericApiResquest";
 import {
   GenerContexInteface,
   GenerContextComponentInterface,
