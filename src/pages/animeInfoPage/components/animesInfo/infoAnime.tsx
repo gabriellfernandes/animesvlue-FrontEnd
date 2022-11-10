@@ -62,10 +62,11 @@ export const InfoAnime = () => {
       <DivAlingTopAnime>
         <h2>Top Animes</h2>
         <div>
-          {topAiring.map((elem) => {
+          {topAiring.map((elem, index) => {
             return (
               id != elem.category_id &&
-              id != elem.id && (
+              id != elem.id &&
+              index < 7 && (
                 <CardAnime
                   title={
                     elem.title != undefined ? elem.title! : elem.category_name!

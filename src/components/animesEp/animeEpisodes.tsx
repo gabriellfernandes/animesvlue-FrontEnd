@@ -9,7 +9,8 @@ import {
 } from "../../config/episodesFunctions";
 import { EpisodesResultsInterface } from "../../interfaces/animes/infoContextInterface";
 import { AnimeEpisodesListInterface } from "../../interfaces/animesComponentsInterface/animesCarouselInterface";
-import { EpConteiner, EpItem } from "./styled";
+import { DivInputEplist, EpConteiner, EpItem, InputEpList } from "./styled";
+import { BiSearchAlt } from "react-icons/bi";
 
 export const AnimeEpisodesList = ({
   eplist,
@@ -26,7 +27,8 @@ export const AnimeEpisodesList = ({
 
   useEffect(() => {
     episodesList.length == 0 && setepisodesList(EpisodeNameValidate(eplist));
-    episodeListEspecial.length == 0 && setEpisodeListEspecial(EpisodeNameValidateOva(eplist, animeTitle));
+    episodeListEspecial.length == 0 &&
+      setEpisodeListEspecial(EpisodeNameValidateOva(eplist, animeTitle));
 
     episodesList.length != 0 &&
       setepisodesList(descendingOrGrowingList(episodesList, type));
@@ -40,8 +42,20 @@ export const AnimeEpisodesList = ({
     <EpConteiner>
       <div>
         <h2>Lista Episodios</h2>
-        <div>
-          <input type="text" placeholder="pesquise pelo anime" />
+        <DivInputEplist>
+          <InputEpList>
+            <div className="conteiner-input">
+              <input
+                type="text"
+                placeholder="Pesquisar..."
+                onChange={(e) => {}}
+              />
+              <button type="submit" className="button-eplist">
+                <BiSearchAlt />
+              </button>
+            </div>
+          </InputEpList>
+
           <button
             onClick={() => {
               setType("asc");
@@ -56,7 +70,7 @@ export const AnimeEpisodesList = ({
           >
             Decrescente
           </button>
-        </div>
+        </DivInputEplist>
 
         {eplist.length !== undefined && (
           <EpItem>

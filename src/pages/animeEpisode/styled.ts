@@ -11,6 +11,8 @@ export const DivConteiner = styled.div`
 export const EpConteiner = styled.div`
   display: flex;
   width: 85%;
+  background-color: var(--backGroundColor);
+  border: 1px solid black;
 
   h2 {
     color: var(--textColor);

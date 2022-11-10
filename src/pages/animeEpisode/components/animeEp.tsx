@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { AnimeEpisodesList } from "../../../components/animesEp/animeEpisodes";
 import { toast } from "react-toastify";
 import {
-  DivAlingTopAnime,
   DivConteinerPlayer,
   DivEpisodio,
   DivInfo,
@@ -13,6 +12,7 @@ import { Player } from "./player";
 import { InfoAndEpisodeContext } from "../../../contexts/animes/infoAndEpisodeContext";
 import { GlobalContext } from "../../../contexts/globalContext";
 import { CardAnime } from "../../../components/CardAnime/cardAnime";
+import { DivAlingTopAnime } from "../../animeInfoPage/styled";
 
 export const AnimeEp = () => {
   const {
@@ -159,27 +159,24 @@ export const AnimeEp = () => {
       </DivConteinerPlayer>
       <DivAlingTopAnime>
         <h2>Top Animes</h2>
-        {
-          <div>
-            {topAiring.map((elem) => {
-              return (
-                id != elem.category_id &&
-                id != elem.id && (
-                  <CardAnime
-                    title={
-                      elem.title != undefined
-                        ? elem.title!
-                        : elem.category_name!
-                    }
-                    image={`https://cdn.appanimeplus.tk/img/${elem.category_image}`}
-                    animeId={elem.id != undefined ? elem.id : elem.category_id}
-                    episodeId={elem.video_id != undefined ? elem.video_id : ""}
-                  ></CardAnime>
-                )
-              );
-            })}
-          </div>
-        }
+        <div>
+          {topAiring.map((elem, index) => {
+            return (
+              id != elem.category_id &&
+              id != elem.id &&
+              index < 7 && (
+                <CardAnime
+                  title={
+                    elem.title != undefined ? elem.title! : elem.category_name!
+                  }
+                  image={`https://cdn.appanimeplus.tk/img/${elem.category_image}`}
+                  animeId={elem.id != undefined ? elem.id : elem.category_id}
+                  episodeId={elem.video_id != undefined ? elem.video_id : ""}
+                ></CardAnime>
+              )
+            );
+          })}
+        </div>
       </DivAlingTopAnime>
     </>
   );
