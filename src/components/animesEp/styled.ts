@@ -82,9 +82,9 @@ export const DivInputEplist = styled.div`
   border: 1px solid rgba(52, 51, 60, 0.74);
   margin: 0 auto;
 
-  button{
+  button {
     height: 40px;
-    background-color:#171510; 
+    background-color: #171510;
     color: var(--textColor);
     padding: 1rem;
     display: flex;
@@ -93,11 +93,10 @@ export const DivInputEplist = styled.div`
     font-size: 1rem;
     border-radius: 8px;
 
-    &:hover{
+    &:hover {
       background-color: var(--hoverColor);
     }
   }
-
 
   @media (max-width: 600px) {
     width: 95%;
@@ -108,8 +107,8 @@ export const DivInputEplist = styled.div`
     padding-right: 0.5rem;
 
     button {
-      padding: 0.5rem;
-      font-size: 0.7rem;
+      padding: 0.4rem;
+      font-size: 0.6rem;
     }
   }
 
@@ -126,7 +125,10 @@ export const InputEpList = styled.form`
   }
 
   @media (max-width: 550px) {
-    width: 35%;
+    width: 45%;
+    .button-eplist {
+      display: none;
+    }
   }
 
   .button-eplist {
