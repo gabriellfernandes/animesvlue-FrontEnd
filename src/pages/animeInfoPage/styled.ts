@@ -312,6 +312,7 @@ export const DivEpisodio = styled.div`
     margin-bottom: 4%;
   }
 
+  
   .animeEpConteiner {
     display: flex;
     align-items: center;

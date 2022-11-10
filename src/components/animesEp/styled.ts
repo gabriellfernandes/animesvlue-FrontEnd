@@ -82,14 +82,22 @@ export const DivInputEplist = styled.div`
   border: 1px solid rgba(52, 51, 60, 0.74);
   margin: 0 auto;
 
-  button {
+  button{
+    height: 40px;
+    background-color:#171510; 
+    color: var(--textColor);
     padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1rem;
     border-radius: 8px;
+
+    &:hover{
+      background-color: var(--hoverColor);
+    }
   }
+
 
   @media (max-width: 600px) {
     width: 95%;
@@ -98,6 +106,7 @@ export const DivInputEplist = styled.div`
   @media (max-width: 550px) {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+
     button {
       padding: 0.5rem;
       font-size: 0.7rem;
