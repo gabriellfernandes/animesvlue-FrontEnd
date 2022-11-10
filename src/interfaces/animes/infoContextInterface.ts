@@ -39,6 +39,8 @@ export interface InfoAndEpisodeContextInterface {
   episodesListSpecial: EpisodesResultsInterface[];
   loadingEp: boolean;
   previosEp: AnimeEpisodeResultsInterface[];
+  search: string;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
   setPreviosEp: React.Dispatch<
     React.SetStateAction<AnimeEpisodeResultsInterface[]>
   >;

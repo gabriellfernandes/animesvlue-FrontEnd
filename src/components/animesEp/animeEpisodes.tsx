@@ -9,12 +9,14 @@ import { DivInputEplist, EpConteiner, EpItem, InputEpList } from "./styled";
 import { BiSearchAlt } from "react-icons/bi";
 
 export const AnimeEpisodesList = ({
-  setType,
   episodesListSpecial,
-  episodesList
+  episodesList,
+  setType,
+  search, 
+  setSearch
 }: AnimeEpisodesListInterface) => {
   const navigate = useNavigate();
-  const [search, setSearch] = useState("");
+ 
 
   return (
     <EpConteiner>

@@ -7,7 +7,9 @@ export interface AnimesCarouselInterface {
 }
 
 export interface AnimeEpisodesListInterface {
-  setType: React.Dispatch<React.SetStateAction<string>>;
-  episodesListSpecial: EpisodesResultsInterface[],
+  episodesListSpecial: EpisodesResultsInterface[];
   episodesList: EpisodesResultsInterface[];
+  search: string;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+  setType: React.Dispatch<React.SetStateAction<string>>;
 }

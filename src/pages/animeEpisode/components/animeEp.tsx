@@ -22,6 +22,8 @@ export const AnimeEp = () => {
     previosEp,
     episodesListSpecial,
     episodesList,
+    search,
+    setSearch,
     setType,
     setPreviosEp,
     setNextEp,
@@ -157,6 +159,8 @@ export const AnimeEp = () => {
             episodesListSpecial={episodesListSpecial}
             episodesList={episodesList}
             setType={setType}
+            search={search}
+            setSearch={setSearch}
           />
         </DivEpisodio>
       </DivConteinerPlayer>

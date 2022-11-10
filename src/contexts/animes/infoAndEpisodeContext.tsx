@@ -50,6 +50,7 @@ export const InfoAndEpisodeContextComponent = ({
     EpisodesResultsInterface[]
   >([] as EpisodesResultsInterface[]);
   const [type, setType] = useState("");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     setLoadingInfo(true);
@@ -146,6 +147,8 @@ export const InfoAndEpisodeContextComponent = ({
         previosEp,
         episodesList,
         episodesListSpecial,
+        search, 
+        setSearch,
         setType,
         setLoadingInfo,
         setNextEp,
