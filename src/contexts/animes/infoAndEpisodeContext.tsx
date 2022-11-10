@@ -90,7 +90,7 @@ export const InfoAndEpisodeContextComponent = ({
       episodesResults.length != 0 &&
       episodesList.length != 0 &&
       setLoadingEp(false);
-  }, [loadingInfo, loadingInfoEp, episodeId, episodesResults]);
+  }, [loadingInfo, loadingInfoEp, episodeId, episodesResults, episodesList]);
 
   useEffect(() => {
     episodeId !== "" &&
