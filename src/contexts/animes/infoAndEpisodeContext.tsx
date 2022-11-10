@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import {
+  descendingOrGrowingList,
   EpisodeNameValidate,
   EpisodeNameValidateOva,
 } from "../../config/episodesFunctions";
@@ -36,13 +37,19 @@ export const InfoAndEpisodeContextComponent = ({
   >([] as AnimeEpisodeResultsInterface[]);
   const [loadingEp, setLoadingEp] = useState(true);
   const [loadingInfoEp, setloadingInfoEp] = useState(true);
-  const [nextEp, setNetxEp] = useState<AnimeEpisodeResultsInterface[]>(
+  const [nextEp, setNextEp] = useState<AnimeEpisodeResultsInterface[]>(
     [] as AnimeEpisodeResultsInterface[]
   );
   const [previosEp, setPreviosEp] = useState<AnimeEpisodeResultsInterface[]>(
     [] as AnimeEpisodeResultsInterface[]
   );
-
+  const [episodesList, setepisodesList] = useState<EpisodesResultsInterface[]>(
+    [] as EpisodesResultsInterface[]
+  );
+  const [episodesListSpecial, setEpisodesListSpecial] = useState<
+    EpisodesResultsInterface[]
+  >([] as EpisodesResultsInterface[]);
+  const [type, setType] = useState("");
 
   useEffect(() => {
     setLoadingInfo(true);
@@ -80,6 +87,7 @@ export const InfoAndEpisodeContextComponent = ({
     !loadingInfo &&
       !loadingInfoEp &&
       episodesResults.length != 0 &&
+      episodesList.length != 0 &&
       setLoadingEp(false);
   }, [loadingInfo, loadingInfoEp, episodeId, episodesResults]);
 
@@ -88,7 +96,7 @@ export const InfoAndEpisodeContextComponent = ({
       episodeId != "undefined" &&
       genericApiRequest({
         restLink: `?episodios=${episodeId}&catid=${animeIdInfo}&next`,
-        dataBase: setNetxEp,
+        dataBase: setNextEp,
       });
   }, [nextEp, episodeId]);
 
@@ -101,6 +109,31 @@ export const InfoAndEpisodeContextComponent = ({
       });
   }, [previosEp, episodeId]);
 
+  useEffect(() => {
+    !loadingInfo &&
+      !loadingInfoEp &&
+      listEpisodes.length != 0 &&
+      episodesList.length == 0 &&
+      setepisodesList(EpisodeNameValidate(listEpisodes));
+
+    !loadingInfo &&
+      !loadingInfoEp &&
+      listEpisodes.length != 0 &&
+      episodesListSpecial.length == 0 &&
+      setEpisodesListSpecial(
+        EpisodeNameValidateOva(listEpisodes, animeInfo[0].category_name)
+      );
+  }, [loadingInfo, loadingInfoEp, listEpisodes]);
+
+  useEffect(() => {
+    episodesList.length != 0 &&
+      setepisodesList(descendingOrGrowingList(episodesList, type));
+      episodesListSpecial.length != 0 &&
+      setEpisodesListSpecial(
+        descendingOrGrowingList(episodesListSpecial, type)
+      );
+  }, [type]);
+
   return (
     <InfoAndEpisodeContext.Provider
       value={{
@@ -111,9 +144,11 @@ export const InfoAndEpisodeContextComponent = ({
         loadingInfoEp,
         nextEp,
         previosEp,
-        listEpisodes,
+        episodesList,
+        episodesListSpecial,
+        setType,
         setLoadingInfo,
-        setNetxEp,
+        setNextEp,
         setPreviosEp,
         setServidorEpisode,
       }}

@@ -1,56 +1,36 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  descendingOrGrowingList,
-  EpisodeNameValidate,
-  EpisodeNameValidateOva,
   existOvaEp,
   verifyOvaOrEpecial,
 } from "../../config/episodesFunctions";
-import { EpisodesResultsInterface } from "../../interfaces/animes/infoContextInterface";
 import { AnimeEpisodesListInterface } from "../../interfaces/animesComponentsInterface/animesCarouselInterface";
 import { DivInputEplist, EpConteiner, EpItem, InputEpList } from "./styled";
 import { BiSearchAlt } from "react-icons/bi";
 
 export const AnimeEpisodesList = ({
-  eplist,
-  animeTitle,
+  setType,
+  episodesListSpecial,
+  episodesList
 }: AnimeEpisodesListInterface) => {
   const navigate = useNavigate();
-  const [episodesList, setepisodesList] = useState<EpisodesResultsInterface[]>(
-    [] as EpisodesResultsInterface[]
-  );
-  const [episodeListEspecial, setEpisodeListEspecial] = useState<
-    EpisodesResultsInterface[]
-  >([] as EpisodesResultsInterface[]);
-  const [type, setType] = useState("");
-
-  useEffect(() => {
-    episodesList.length == 0 && setepisodesList(EpisodeNameValidate(eplist));
-    episodeListEspecial.length == 0 &&
-      setEpisodeListEspecial(EpisodeNameValidateOva(eplist, animeTitle));
-
-    episodesList.length != 0 &&
-      setepisodesList(descendingOrGrowingList(episodesList, type));
-    episodeListEspecial.length != 0 &&
-      setEpisodeListEspecial(
-        descendingOrGrowingList(episodeListEspecial, type)
-      );
-  }, [type]);
+  const [search, setSearch] = useState("");
 
   return (
     <EpConteiner>
       <div>
         <h2>Lista Episodios</h2>
         <DivInputEplist>
-          <InputEpList>
+          <InputEpList onSubmit={(e) => e.preventDefault()}>
             <div className="conteiner-input">
               <input
                 type="text"
                 placeholder="Pesquisar..."
-                onChange={(e) => {}}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
               />
-              <button type="submit" className="button-eplist">
+              <button className="button-eplist">
                 <BiSearchAlt />
               </button>
             </div>
@@ -72,33 +52,51 @@ export const AnimeEpisodesList = ({
           </button>
         </DivInputEplist>
 
-        {eplist.length !== undefined && (
+        {episodesList.length !== undefined && (
           <EpItem>
-            {episodesList.map((elem) => {
-              return (
-                !verifyOvaOrEpecial(elem.title) && (
-                  <li
-                    style={{ color: "white" }}
-                    onClick={() => {
-                      navigate(
-                        `/anime/episode/${elem.video_id}/${elem.category_id}`
-                      );
-                    }}
-                  >
-                    <h4>{elem.title}</h4>
-                  </li>
-                )
-              );
-            })}
+            {search.length == 0
+              ? episodesList.map((elem) => {
+                  return (
+                    !verifyOvaOrEpecial(elem.title) && (
+                      <li
+                        style={{ color: "white" }}
+                        onClick={() => {
+                          navigate(
+                            `/anime/episode/${elem.video_id}/${elem.category_id}`
+                          );
+                        }}
+                      >
+                        <h4>{elem.title}</h4>
+                      </li>
+                    )
+                  );
+                })
+              : episodesList.map((elem) => {
+                  return (
+                    elem.title.includes(search) &&
+                    !verifyOvaOrEpecial(elem.title) && (
+                      <li
+                        style={{ color: "white" }}
+                        onClick={() => {
+                          navigate(
+                            `/anime/episode/${elem.video_id}/${elem.category_id}`
+                          );
+                        }}
+                      >
+                        <h4>{elem.title}</h4>
+                      </li>
+                    )
+                  );
+                })}
           </EpItem>
         )}
       </div>
-      {existOvaEp(episodeListEspecial) && (
+      {existOvaEp(episodesListSpecial) && (
         <div>
           <h2>Lista de Ovas</h2>
-          {eplist.length !== undefined && (
+          {episodesList.length !== undefined && (
             <EpItem>
-              {episodeListEspecial.map((elem) => {
+              {episodesListSpecial.map((elem) => {
                 return (
                   <li
                     style={{ color: "white" }}

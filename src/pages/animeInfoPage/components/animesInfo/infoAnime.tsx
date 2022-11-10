@@ -13,7 +13,7 @@ import {
 } from "../../styled";
 
 export const InfoAnime = () => {
-  const { animeInfo, listEpisodes } = useContext(InfoAndEpisodeContext);
+  const { animeInfo, episodesList, episodesListSpecial, setType } = useContext(InfoAndEpisodeContext);
   const { id } = useParams();
   const { topAiring } = useContext(GlobalContext);
 
@@ -38,7 +38,7 @@ export const InfoAnime = () => {
                 </h2>
               </div>
               <h2>
-                Episódios: <span>{listEpisodes.length}</span>
+                Episódios: <span>{episodesList.length + episodesListSpecial.length}</span>
               </h2>
               <h2>
                 Ano: <span>{animeInfo[0].ano}</span>
@@ -53,9 +53,9 @@ export const InfoAnime = () => {
         </DivSynope>
         <DivEpisodio>
           <AnimeEpisodesList
-            animeTitle={animeInfo[0].category_name}
-            eplist={listEpisodes}
-            key="animeEpisodesList"
+            episodesListSpecial={episodesListSpecial}
+            episodesList={episodesList}
+            setType={setType}
           />
         </DivEpisodio>
       </DivConteinerInfoTopAling>

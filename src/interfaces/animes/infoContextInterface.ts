@@ -33,17 +33,19 @@ export interface InfoAndEpisodeContextInterface {
   animeInfo: AnimeInfoResultsInteface[];
   loadingInfo: boolean;
   loadingInfoEp: boolean;
-  listEpisodes: EpisodesResultsInterface[];
-  setLoadingInfo: React.Dispatch<React.SetStateAction<boolean>>;
-  setServidorEpisode: React.Dispatch<React.SetStateAction<string>>;
   episodesResults: AnimeEpisodeResultsInterface[];
   nextEp: AnimeEpisodeResultsInterface[];
-  setNetxEp: React.Dispatch<
-    React.SetStateAction<AnimeEpisodeResultsInterface[]>
-  >;
+  episodesList: EpisodesResultsInterface[];
+  episodesListSpecial: EpisodesResultsInterface[];
+  loadingEp: boolean;
   previosEp: AnimeEpisodeResultsInterface[];
   setPreviosEp: React.Dispatch<
     React.SetStateAction<AnimeEpisodeResultsInterface[]>
   >;
-  loadingEp: boolean;
+  setType: React.Dispatch<React.SetStateAction<string>>;
+  setNextEp: React.Dispatch<
+    React.SetStateAction<AnimeEpisodeResultsInterface[]>
+  >;
+  setLoadingInfo: React.Dispatch<React.SetStateAction<boolean>>;
+  setServidorEpisode: React.Dispatch<React.SetStateAction<string>>;
 }

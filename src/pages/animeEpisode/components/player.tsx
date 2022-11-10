@@ -1,4 +1,3 @@
-import ReactPlayer from "react-player";
 import "bootstrap/dist/css/bootstrap.min.css";
 interface PlayerInterface {
   link: string;

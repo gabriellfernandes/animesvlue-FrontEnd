@@ -18,11 +18,13 @@ export const AnimeEp = () => {
   const {
     episodesResults,
     animeInfo,
-    listEpisodes,
     nextEp,
-    setNetxEp,
     previosEp,
+    episodesListSpecial,
+    episodesList,
+    setType,
     setPreviosEp,
+    setNextEp,
   } = useContext(InfoAndEpisodeContext);
   const { topAiring } = useContext(GlobalContext);
 
@@ -91,7 +93,7 @@ export const AnimeEp = () => {
               navigate(
                 `/anime/episode/${nextEp[0].video_id}/${animeInfo[0].id}`
               );
-              setNetxEp([]);
+              setNextEp([]);
             }}
           >
             Proximo episodio
@@ -152,8 +154,9 @@ export const AnimeEp = () => {
 
         <DivEpisodio>
           <AnimeEpisodesList
-            animeTitle={animeInfo[0].category_name}
-            eplist={listEpisodes}
+            episodesListSpecial={episodesListSpecial}
+            episodesList={episodesList}
+            setType={setType}
           />
         </DivEpisodio>
       </DivConteinerPlayer>
