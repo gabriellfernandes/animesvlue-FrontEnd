@@ -12,6 +12,7 @@ export const Player = ({ link }: PlayerInterface) => {
         width="100%"
         height="100%"
         controls
+        onProgress={(e) => console.log(e)}
       />
     </div>
   );

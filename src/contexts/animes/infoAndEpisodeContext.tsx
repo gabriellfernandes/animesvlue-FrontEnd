@@ -99,7 +99,8 @@ export const InfoAndEpisodeContextComponent = ({
         restLink: `?episodios=${episodeId}&catid=${animeIdInfo}&next`,
         dataBase: setNextEp,
       });
-  }, [nextEp, episodeId]);
+      console.log("rodei next")
+  }, [episodeId]);
 
   useEffect(() => {
     episodeId !== "" &&
@@ -108,7 +109,11 @@ export const InfoAndEpisodeContextComponent = ({
         restLink: `?episodios=${episodeId}&catid=${animeIdInfo}&previous`,
         dataBase: setPreviosEp,
       });
-  }, [previosEp, episodeId]);
+
+      episodeId !== "" &&
+      episodeId != "undefined" &&
+      console.log("rodei previous")
+  }, [episodeId]);
 
   useEffect(() => {
     !loadingInfo &&
@@ -124,6 +129,8 @@ export const InfoAndEpisodeContextComponent = ({
       setEpisodesListSpecial(
         EpisodeNameValidateOva(listEpisodes, animeInfo[0].category_name)
       );
+
+      console.log(listEpisodes)
   }, [loadingInfo, loadingInfoEp, listEpisodes]);
 
   useEffect(() => {
