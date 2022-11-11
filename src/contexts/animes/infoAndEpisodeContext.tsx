@@ -69,6 +69,8 @@ export const InfoAndEpisodeContextComponent = ({
         restLink: `?cat_id=${animeIdInfo}`,
         dataBase: setListEpisode,
       }).finally(() => {
+        setepisodesList([])
+        setEpisodesListSpecial([])
         setloadingInfoEp(false);
       });
   }, [animeIdInfo]);

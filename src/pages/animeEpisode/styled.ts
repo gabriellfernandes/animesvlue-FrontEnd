@@ -38,18 +38,31 @@ export const DivConteinerPlayer = styled.div`
   flex-direction: column;
   width: 81%;
   margin-right: 10px;
-
   gap: 1rem;
 
-  button{
+  button {
     height: 40px;
     font-size: 1.5rem;
-    background-color:#171510; 
+    background-color: #171510;
     color: var(--textColor);
 
-    &:hover{
+    &:hover {
       background-color: var(--hoverColor);
     }
+  }
+  .ButtonSkip90Secunds {
+    z-index: 1000;
+    position: absolute;
+    left: 82%;
+    bottom: 15%;
+    font-size: 1.2rem;
+    background-color: rgb(19, 18, 25, 0.5);
+    border-radius: 16px;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    color: white;
   }
 
   @media (max-width: 850px) {
@@ -331,7 +344,6 @@ export const DivEpisodio = styled.div`
   width: 100%;
   border-bottom: 1px solid var(--shadowBox);
   text-align: center;
- 
 
   img {
     width: 280px;
