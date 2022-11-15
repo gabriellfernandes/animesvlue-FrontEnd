@@ -5,7 +5,7 @@ import { Header } from "../../components/header/header";
 import { InfoAndEpisodeContext } from "../../contexts/animes/infoAndEpisodeContext";
 import { GlobalContext } from "../../contexts/globalContext";
 import { AnimeEp } from "./components/animeEp";
-import { DivConteiner, EpConteiner } from "./styled";
+import { DivConteiner, EpConteiner } from "./style";
 
 export const AnimeEpisodePage = () => {
   const { loadingEp, setLoadingInfo } = useContext(InfoAndEpisodeContext);

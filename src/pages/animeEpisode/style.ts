@@ -51,7 +51,6 @@ export const DivConteinerPlayer = styled.div`
     }
   }
   .ButtonSkip90Secunds {
-    z-index: 1000;
     position: absolute;
     left: 82%;
     bottom: 15%;
@@ -64,6 +63,7 @@ export const DivConteinerPlayer = styled.div`
     align-items: center;
     color: white;
   }
+  
 
   @media (max-width: 850px) {
     width: 100%;
@@ -73,7 +73,7 @@ export const DivConteinerPlayer = styled.div`
   .player {
     padding: 1rem;
     text-align: center;
-    border-bottom: 1px solid var(--shadowBox);
+    margin-bottom: 40px;
 
     .player-wrapper {
       position: relative;

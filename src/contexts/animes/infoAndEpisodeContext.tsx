@@ -69,8 +69,8 @@ export const InfoAndEpisodeContextComponent = ({
         restLink: `?cat_id=${animeIdInfo}`,
         dataBase: setListEpisode,
       }).finally(() => {
-        setepisodesList([])
-        setEpisodesListSpecial([])
+        setepisodesList([]);
+        setEpisodesListSpecial([]);
         setloadingInfoEp(false);
       });
   }, [animeIdInfo]);
@@ -101,7 +101,6 @@ export const InfoAndEpisodeContextComponent = ({
         restLink: `?episodios=${episodeId}&catid=${animeIdInfo}&next`,
         dataBase: setNextEp,
       });
-      console.log("rodei next")
   }, [episodeId]);
 
   useEffect(() => {
@@ -111,10 +110,6 @@ export const InfoAndEpisodeContextComponent = ({
         restLink: `?episodios=${episodeId}&catid=${animeIdInfo}&previous`,
         dataBase: setPreviosEp,
       });
-
-      episodeId !== "" &&
-      episodeId != "undefined" &&
-      console.log("rodei previous")
   }, [episodeId]);
 
   useEffect(() => {
@@ -131,14 +126,12 @@ export const InfoAndEpisodeContextComponent = ({
       setEpisodesListSpecial(
         EpisodeNameValidateOva(listEpisodes, animeInfo[0].category_name)
       );
-
-      console.log(listEpisodes)
   }, [loadingInfo, loadingInfoEp, listEpisodes]);
 
   useEffect(() => {
     episodesList.length != 0 &&
       setepisodesList(descendingOrGrowingList(episodesList, type));
-      episodesListSpecial.length != 0 &&
+    episodesListSpecial.length != 0 &&
       setEpisodesListSpecial(
         descendingOrGrowingList(episodesListSpecial, type)
       );
@@ -156,7 +149,7 @@ export const InfoAndEpisodeContextComponent = ({
         previosEp,
         episodesList,
         episodesListSpecial,
-        search, 
+        search,
         setSearch,
         setType,
         setLoadingInfo,

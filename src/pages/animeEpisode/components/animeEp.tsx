@@ -1,14 +1,9 @@
 import { useContext, useState } from "react";
 import { AnimeEpisodesList } from "../../../components/animesEp/animeEpisodes";
 import { toast } from "react-toastify";
-import {
-  DivConteinerPlayer,
-  DivEpisodio,
-  DivInfo,
-  DivSynope,
-} from "../styled";
+import { DivConteinerPlayer, DivEpisodio, DivInfo, DivSynope } from "../style";
 import { useNavigate, useParams } from "react-router-dom";
-import { Player } from "./player";
+import { PlayerTest } from "./player";
 import { InfoAndEpisodeContext } from "../../../contexts/animes/infoAndEpisodeContext";
 import { GlobalContext } from "../../../contexts/globalContext";
 import { CardAnime } from "../../../components/CardAnime/cardAnime";
@@ -42,13 +37,13 @@ export const AnimeEp = () => {
       <DivConteinerPlayer>
         <div className="player">
           <h2>{server == "2" ? "HD" : "SD"}</h2>
-          <Player
+          <PlayerTest
             link={`${
               server == "1"
                 ? episodesResults[0].location
                 : episodesResults[0].locationsd
             }`}
-          ></Player>
+          ></PlayerTest>
         </div>
         {episodesResults[0].location.length != 0 ? (
           <button
