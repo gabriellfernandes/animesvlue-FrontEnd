@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { InfoAndEpisodeContext } from "../contexts/animes/infoAndEpisodeContext";
 import { EpisodesResultsInterface } from "../interfaces/animes/infoContextInterface";
 
 export const verifyOvaOrEpecial = (epName: string) => {

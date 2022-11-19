@@ -1,13 +1,16 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AnimeEpisodesList } from "../../../components/animesEp/animeEpisodes";
 import { toast } from "react-toastify";
 import { DivConteinerPlayer, DivEpisodio, DivInfo, DivSynope } from "../style";
 import { useNavigate, useParams } from "react-router-dom";
-import { PlayerTest } from "./player";
+import Player from "./player/player";
 import { InfoAndEpisodeContext } from "../../../contexts/animes/infoAndEpisodeContext";
 import { GlobalContext } from "../../../contexts/globalContext";
 import { CardAnime } from "../../../components/CardAnime/cardAnime";
 import { DivAlingTopAnime } from "../../animeInfoPage/styled";
+import { EpisodeNameValidate } from "../../../config/episodesFunctions";
+import { EpisodesResultsInterface } from "../../../interfaces/animes/infoContextInterface";
+import ninjaFlixBackground from "../../../assets/ninjaflixBackgorund.png"
 
 export const AnimeEp = () => {
   const {
@@ -24,6 +27,10 @@ export const AnimeEp = () => {
     setNextEp,
   } = useContext(InfoAndEpisodeContext);
   const { topAiring } = useContext(GlobalContext);
+  const [episodeTitle, setEpisodeTitle] =
+    useState<EpisodesResultsInterface[]>(episodesResults);
+
+  useEffect(() => setEpisodeTitle(EpisodeNameValidate(episodeTitle)), []);
 
   const [server, setServer] = useState(
     `${episodesResults[0].locationsd.length != 0 ? "2" : "1"}`
@@ -37,13 +44,16 @@ export const AnimeEp = () => {
       <DivConteinerPlayer>
         <div className="player">
           <h2>{server == "2" ? "HD" : "SD"}</h2>
-          <PlayerTest
-            link={`${
+          <Player
+            url={`${
               server == "1"
                 ? episodesResults[0].location
                 : episodesResults[0].locationsd
             }`}
-          ></PlayerTest>
+            light={ninjaFlixBackground}
+            episodeTitle={episodeTitle[0].title}
+            animeTitle={animeInfo[0].category_name}
+          ></Player>
         </div>
         {episodesResults[0].location.length != 0 ? (
           <button
