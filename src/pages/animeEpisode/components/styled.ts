@@ -77,13 +77,13 @@ export const StyledSkipIntro = styled("div")<ReactPlayerProps>`
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   opacity: 1;
-  height: calc(100% - 100px);
+  height: calc(100% - 120px);
 
   @media (max-width: 768px) {
-    height: calc(100% - 120px);
+    height: calc(100% - 140px);
   }
   @media (max-width: 460px) {
-    height: calc(100% - 140px);
+    height: calc(100% - 160px);
   }
 
   .video-player__overlay-button-skip-intro {
