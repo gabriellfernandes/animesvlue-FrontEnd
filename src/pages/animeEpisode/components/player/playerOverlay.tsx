@@ -1,5 +1,4 @@
-import { Box, Chip, Fade, Typography } from "@mui/material";
-import { ReactPlayerProps } from "react-player";
+import { Box, Fade, Typography } from "@mui/material";
 import { StyledPlayerOverlay } from "../styled";
 
 interface PlayerOverlayInterface {
@@ -17,7 +16,7 @@ const PlayerOverlay = ({
     <StyledPlayerOverlay state={state}>
       <Box className={"video-player__overlay-inner"}>
         <Fade in>
-            <Typography variant="overline" color={"white"}>
+          <Typography variant="overline" color={"white"}>
             <h2>{episodeTitle}</h2>
           </Typography>
         </Fade>

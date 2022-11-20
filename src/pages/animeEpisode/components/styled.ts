@@ -28,6 +28,40 @@ export const StyledPlayerOverlay = styled("div")<ReactPlayerProps>`
   }
 `;
 
+export const StyledSkipIntro = styled.div`
+  position: absolute;
+  padding: 10px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100.2%;
+  background-color: transparent;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  opacity: 1;
+  height: 90%;
+  transition: opacity 0.2s ease-in-out;
+
+  .video-player__overlay-button-skip-intro {
+    position: absolute;
+    right: 1%;
+    bottom: 5%;
+    font-size: 1.4rem;
+    background-color: rgb(19, 18, 25, 0.5);
+    border-radius: 16px;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    color: white;
+    opacity: 1;
+
+    &:hover {
+      background-color: var(--hoverColor);
+    }
+  }
+`;
+
 export const StyledPlayerControls = styled("div")`
   position: absolute;
   padding: 10px;
@@ -93,12 +127,12 @@ export const StyledPlayer = styled("div")<ReactPlayerProps>`
     height: 100%;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent);
   }
-  
+
   .video-player__controls {
     opacity: ${({ state }) => (state.light ? "0" : state.playing ? "0" : "1")};
   }
 
-  .video-player__controls:hover{
+  .video-player__controls:hover {
     opacity: 1;
-  } 
+  }
 `;

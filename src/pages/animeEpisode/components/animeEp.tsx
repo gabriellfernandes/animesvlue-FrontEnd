@@ -27,10 +27,7 @@ export const AnimeEp = () => {
     setNextEp,
   } = useContext(InfoAndEpisodeContext);
   const { topAiring } = useContext(GlobalContext);
-  const [episodeTitle, setEpisodeTitle] =
-    useState<EpisodesResultsInterface[]>(episodesResults);
 
-  useEffect(() => setEpisodeTitle(EpisodeNameValidate(episodeTitle)), []);
 
   const [server, setServer] = useState(
     `${episodesResults[0].locationsd.length != 0 ? "2" : "1"}`
@@ -43,7 +40,7 @@ export const AnimeEp = () => {
     <>
       <DivConteinerPlayer>
         <div className="player">
-          <h2>{server == "2" ? "HD" : "SD"}</h2>
+          <h2 style={{marginBottom: "20px"}}>{server == "2" ? "HD" : "SD"}</h2>
           <Player
             url={`${
               server == "1"
@@ -51,7 +48,7 @@ export const AnimeEp = () => {
                 : episodesResults[0].locationsd
             }`}
             light={ninjaFlixBackground}
-            episodeTitle={episodeTitle[0].title}
+            episodeTitle={""}
             animeTitle={animeInfo[0].category_name}
           ></Player>
         </div>

@@ -1,7 +1,6 @@
 import * as React from "react";
-import { styled } from "@mui/material";
 import PlayArrowRounded from "@mui/icons-material/PlayArrowRounded";
-import ReactPlayer, { ReactPlayerProps } from "react-player";
+import ReactPlayer from "react-player";
 import PlayerControls from "./playerControls";
 import PlayerOverlay from "./playerOverlay";
 import { INITIAL_STATE, reducer } from "./playerReducer";
