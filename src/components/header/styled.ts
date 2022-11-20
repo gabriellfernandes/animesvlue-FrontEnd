@@ -14,6 +14,8 @@ export const HeaderConteiner = styled.div`
     padding: 10px 5%;
   }
 
+
+
   @media (max-width: 850px) {
     display: none;
   }
@@ -27,6 +29,15 @@ export const HeaderConteiner = styled.div`
     height: 80px;
     object-fit: cover;
   }
+
+  @media (max-width: 1000px) {
+    .logo {
+      width: 15%;
+      height: 50px;
+    }
+  }
+
+
 `;
 
 export const UlHeader = styled.ul`
@@ -66,7 +77,6 @@ export const UlHeader = styled.ul`
 export const InputHeader = styled.form`
   display: flex;
   align-items: center;
-  
 
   input {
     width: 80%;
@@ -74,8 +84,8 @@ export const InputHeader = styled.form`
     color: white;
   }
 
-  .conteiner-input{
-    border: 0.5px solid  var(--shadowBox);
+  .conteiner-input {
+    border: 0.5px solid var(--shadowBox);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -83,15 +93,15 @@ export const InputHeader = styled.form`
     padding: 0.3rem;
   }
 
-  svg{
-      font-size: 25px;
-      color: white;
-      cursor: pointer;
+  svg {
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
 
-      &:hover{
-        color: var(--hoverColor);
-      }
+    &:hover {
+      color: var(--hoverColor);
     }
+  }
 
   span {
     padding: 10px;
@@ -99,8 +109,8 @@ export const InputHeader = styled.form`
     font-size: 22px;
     cursor: default;
   }
-  
-  button{
+
+  button {
     background-color: rgba(0, 0, 0, 0);
     border: none;
     padding: 0;

@@ -30,7 +30,7 @@ export const HeaderConteinerMobile = styled.div`
   svg {
     color: white;
     &:hover {
-      color: rgb(0, 181, 237);
+      color: var(--hoverColor);
     }
   }
 
@@ -119,8 +119,8 @@ export const OpeMenu = styled.div`
     position: absolute;
     z-index: -1;
     opacity: 0;
-    width: 100%;;
-    height: calc(100vh - 79px);
+    width: 100%;
+    height: calc(97vh - 79px);
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;

@@ -48,7 +48,7 @@ export const AnimeEp = () => {
                 : episodesResults[0].locationsd
             }`}
             light={ninjaFlixBackground}
-            episodeTitle={""}
+            episodeTitle={episodesResults[0].title}
             animeTitle={animeInfo[0].category_name}
           ></Player>
         </div>

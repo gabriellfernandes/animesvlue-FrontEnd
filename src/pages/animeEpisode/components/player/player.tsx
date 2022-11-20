@@ -5,7 +5,7 @@ import PlayerControls from "./playerControls";
 import PlayerOverlay from "./playerOverlay";
 import { INITIAL_STATE, reducer } from "./playerReducer";
 import { StyledPlayer } from "../styled";
-
+import { EpisodeNumber } from "../../../../config/episodesFunctions";
 
 interface PlayerInterface {
   url: string;
@@ -18,6 +18,7 @@ const Player = ({ url, light, episodeTitle, animeTitle }: PlayerInterface) => {
   const [state, dispatch] = React.useReducer(reducer, INITIAL_STATE);
   const playerRef = React.useRef<ReactPlayer>(null);
   const wrapperRef = React.useRef<HTMLDivElement>(null);
+  const epNumber = EpisodeNumber(episodeTitle)
 
   const handlePreview = () => {
     dispatch({ type: "PLAY" });
@@ -74,11 +75,7 @@ const Player = ({ url, light, episodeTitle, animeTitle }: PlayerInterface) => {
         onProgress={handleProgress}
         onClickPreview={handlePreview}
       />
-      <PlayerOverlay
-        state={state}
-        animeTitle={animeTitle}
-        episodeTitle={episodeTitle}
-      />
+      <PlayerOverlay state={state} episodeTitle={epNumber} />
       {!state.controls && !state.light && (
         <PlayerControls
           state={state}

@@ -88,7 +88,7 @@ const PlayerControls: React.FC<ReactPlayerProps> = (props) => {
         sx={{ mb: 1, px: 1 }}
         alignItems="center"
       >
-        <Typography variant="body2" color="white">
+        <Typography variant="body2" color="white" className="timing_video">
           {format(new Date(state.progress.playedSeconds * 1000), "mm:ss")}
           {" / "}
           {format(new Date(state.duration * 1000), "mm:ss")}
@@ -148,7 +148,7 @@ const PlayerControls: React.FC<ReactPlayerProps> = (props) => {
           </Stack>
         </Stack>
       </StyledPlayerControls>
-      <StyledSkipIntro>
+      <StyledSkipIntro state={showButton}>
         {showButton && type === "skip" ? (
           <button
             className="video-player__overlay-button-skip-intro"

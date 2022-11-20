@@ -13,6 +13,7 @@ export const EpConteiner = styled.div`
   width: 85%;
   background-color: var(--backGroundColor);
   border: 1px solid black;
+  padding-bottom: 80px;
 
   h2 {
     color: var(--textColor);
@@ -50,21 +51,8 @@ export const DivConteinerPlayer = styled.div`
       background-color: var(--hoverColor);
     }
   }
-  .ButtonSkip90Secunds {
-    position: absolute;
-    left: 82%;
-    bottom: 15%;
-    font-size: 1.2rem;
-    background-color: rgb(19, 18, 25, 0.5);
-    border-radius: 16px;
-    padding: 1rem;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    color: white;
-  }
-  
 
+  
   @media (max-width: 850px) {
     width: 100%;
     margin-right: 0px;

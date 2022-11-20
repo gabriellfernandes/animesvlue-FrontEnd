@@ -7,6 +7,10 @@ export const EpConteiner = styled.div`
   width: 100%;
   padding-bottom: 4rem;
   gap: 2rem;
+
+  h2 {
+    margin-bottom: 20px;
+  }
 `;
 
 export const EpItem = styled.ul`
@@ -81,6 +85,7 @@ export const DivInputEplist = styled.div`
   transition: all 0.6s;
   border: 1px solid rgba(52, 51, 60, 0.74);
   margin: 0 auto;
+  gap: 1rem;
 
   button {
     height: 40px;
@@ -108,11 +113,19 @@ export const DivInputEplist = styled.div`
 
     button {
       padding: 0.4rem;
-      font-size: 0.6rem;
+      font-size: 1rem;
     }
   }
 
-  gap: 1rem;
+  @media (max-width: 425px) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    button {
+      padding: 0.4rem;
+      font-size: 0.8rem;
+    }
+  }
 `;
 
 export const InputEpList = styled.form`
