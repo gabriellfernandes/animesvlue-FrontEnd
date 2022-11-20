@@ -130,6 +130,5 @@ export const EpisodeNameValidateOva = (
 
 export const EpisodeNumber = (episodeNumber: string) => {
   const epNumber = episodeNumber.split("")[episodeNumber.split("").length - 1]
-  console.log(episodeNumber)
   return epNumber
 }
