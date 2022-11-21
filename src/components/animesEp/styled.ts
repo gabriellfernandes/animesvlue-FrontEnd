@@ -45,6 +45,7 @@ export const EpItem = styled.ul`
     display: flex;
     align-items: center;
     padding-left: 2rem;
+    cursor: pointer;
 
     h4 {
       text-align: left;

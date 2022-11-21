@@ -20,7 +20,7 @@ from{
   }
 `;
 
-export const StyledPlayerOverlay = styled("div")<ReactPlayerProps>`
+export const StyledPlayerOverlay = styled.div<ReactPlayerProps>`
   position: absolute;
   width: 100.2%;
   box-sizing: border-box;
@@ -66,7 +66,7 @@ export const StyledPlayerOverlay = styled("div")<ReactPlayerProps>`
   }
 `;
 
-export const StyledSkipIntro = styled("div")<ReactPlayerProps>`
+export const StyledSkipIntro = styled.div<ReactPlayerProps>`
   position: absolute;
   padding: 10px;
   box-sizing: border-box;
@@ -107,7 +107,7 @@ export const StyledSkipIntro = styled("div")<ReactPlayerProps>`
   }
 `;
 
-export const StyledPlayerControls = styled("div")`
+export const StyledPlayerControls = styled.div`
   position: absolute;
   padding: 10px;
   box-sizing: border-box;
@@ -201,7 +201,7 @@ export const StyledPlayerControls = styled("div")`
   }
 `;
 
-export const StyledPlayer = styled("div")<ReactPlayerProps>`
+export const StyledPlayer = styled.div<ReactPlayerProps>`
   position: relative;
   aspect-ratio: 16/9;
   border-radius: 8px;

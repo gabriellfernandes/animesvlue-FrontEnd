@@ -107,6 +107,7 @@ const PlayerControls: React.FC<ReactPlayerProps> = (props) => {
 
   const [type, setType] = useState("intro");
   const [showButton, setShowButton] = useState(false);
+
   useEffect(() => {
     if (
       state.progress.playedSeconds > 10 &&
@@ -126,6 +127,7 @@ const PlayerControls: React.FC<ReactPlayerProps> = (props) => {
       setShowButton(false);
     }
   }, [state.progress.playedSeconds]);
+
   const navigate = useNavigate();
   const { nextEp, animeInfo } = useContext(InfoAndEpisodeContext);
 
