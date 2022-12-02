@@ -46,22 +46,33 @@ export const StyledPlayerOverlay = styled.div<ReactPlayerProps>`
   }
 
   @media (max-width: 1200px) {
-    h4 {
+    .video-player__overlay-inner_text {
       font-size: 2.5rem;
     }
   }
 
-  @media (max-width: 768px) {
-    h4 {
+  @media (max-width: 650px) {
+    .video-player__overlay-inner_text {
       font-size: 1.5rem;
     }
   }
 
-  @media (max-width: 500px) {
-    justify-content: flex-start;
+  @media (max-width: 650px) {
+    justify-content: left;
+  }
 
-    h4 {
-      font-size: 1.1rem;
+  @media (max-width: 500px) {
+    .video-player__overlay-inner_text {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 350px) {
+    .video-player__overlay-inner_text {
+      font-size: 0.9rem;
+      text-align: left;
     }
   }
 `;
@@ -105,6 +116,29 @@ export const StyledSkipIntro = styled.div<ReactPlayerProps>`
       background-color: var(--hoverColor);
     }
   }
+
+  @media (max-width: 460px) {
+    .video-player__overlay-button-skip-intro {
+      bottom: -100%;
+      font-size: 1rem;
+      padding: 0.9rem;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .video-player__overlay-button-skip-intro {
+      bottom: -150%;
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 350px) {
+    .video-player__overlay-button-skip-intro {
+      bottom: -110%;
+      font-size: 0.7rem;
+      padding: 0.5rem;
+    }
+  }
 `;
 
 export const StyledPlayerControls = styled.div`
@@ -112,8 +146,8 @@ export const StyledPlayerControls = styled.div`
   padding: 10px;
   box-sizing: border-box;
   bottom: 0;
-  left: 0;
-  width: 100.2%;
+  left: -1px;
+  width: 100.3%;
   background-color: rgba(0, 0, 0, 0.6);
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -166,8 +200,11 @@ export const StyledPlayerControls = styled.div`
       width: 25px;
     }
   }
+
   @media (max-width: 420px) {
+   
     .video-player__slider {
+      
       &--sound {
         width: 60px;
       }
@@ -180,6 +217,7 @@ export const StyledPlayerControls = styled.div`
       width: 20px;
     }
   }
+
   @media (max-width: 350px) {
     .video-player__slider {
       &--sound {
@@ -205,10 +243,12 @@ export const StyledPlayer = styled.div<ReactPlayerProps>`
   position: relative;
   aspect-ratio: 16/9;
   border-radius: 8px;
+
   video,
   .react-player__preview {
     border-radius: 8px;
   }
+
   .react-player__preview:before {
     content: "";
     display: block;
@@ -227,5 +267,13 @@ export const StyledPlayer = styled.div<ReactPlayerProps>`
   .video-player__controls:hover,
   .video-player__controls:active {
     opacity: 1;
+  }
+
+  @media (max-width: 500px) {
+    &:hover {
+      .video-player__controls, .video-player__controls:active{
+        opacity: 1;
+      }
+    }
   }
 `;

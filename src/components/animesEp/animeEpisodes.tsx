@@ -42,6 +42,7 @@ export const AnimeEpisodesList = ({
             onClick={() => {
               setType("asc");
             }}
+            className="button-aling-list"
           >
             Crescente
           </button>
@@ -49,6 +50,7 @@ export const AnimeEpisodesList = ({
             onClick={() => {
               setType("desc");
             }}
+            className="button-aling-list"
           >
             Decrescente
           </button>

@@ -88,7 +88,7 @@ export const DivInputEplist = styled.div`
   margin: 0 auto;
   gap: 1rem;
 
-  button {
+  .button-aling-list {
     height: 40px;
     background-color: #171510;
     color: var(--textColor);
@@ -112,7 +112,7 @@ export const DivInputEplist = styled.div`
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 
-    button {
+    .button-aling-list {
       padding: 0.4rem;
       font-size: 1rem;
     }
@@ -122,7 +122,7 @@ export const DivInputEplist = styled.div`
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 
-    button {
+    .button-aling-list {
       padding: 0.4rem;
       font-size: 0.8rem;
     }
@@ -140,7 +140,7 @@ export const InputEpList = styled.form`
 
   @media (max-width: 550px) {
     width: 45%;
-    .button-eplist {
+    .button-eplist{
       display: none;
     }
   }
@@ -170,6 +170,7 @@ export const InputEpList = styled.form`
     width: 80%;
     background-color: rgba(0, 0, 0, 0);
     color: white;
+    padding-left: 10%;
   }
 
   .conteiner-input {

@@ -15,7 +15,7 @@ const PlayerOverlay = ({
       <Box className={"video-player__overlay-inner"}>
         <Fade in>
           <Typography variant="overline" color={"white"}>
-            <h4>{`Episode - ${episodeTitle}`}</h4>
+            <h4 className="video-player__overlay-inner_text">{`Episode - ${episodeTitle}`}</h4>
           </Typography>
         </Fade>
       </Box>
